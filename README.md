@@ -1,6 +1,6 @@
 # NAME
 
-SOPx::Auth::V1\_1 - It's new $module
+SOPx::Auth::V1\_1 - SOP v1.1 authentication module
 
 # SYNOPSIS
 
