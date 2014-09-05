@@ -5,6 +5,7 @@ use warnings;
 
 our $VERSION = "0.01";
 
+use Carp ();
 use Digest::SHA qw(hmac_sha256_hex);
 
 sub new {
@@ -45,8 +46,11 @@ sub sign_query {
 
 sub verify_query {
     my ($self, $query) = @_;
-    my $sig = delete $query->{sig}
-            or Carp::croak("Missing required parameter: sig");
+
+    return if not $query->{sig}
+           or not $query->{time};
+
+    my $sig = delete $query->{sig};
     $self->generate_signature($query) eq $sig;
 }
 

@@ -61,23 +61,19 @@ subtest 'Test sign_query w/ time' => sub {
 };
 
 subtest 'Test verify_query w/o required parameter' => sub {
-    throws_ok {
-        $auth->verify_query({
-            app_id => '1234',
-            hoge => 'hoge',
-            fuga => 'fuga',
-            time => 123456,
-        })
-    } qr|Missing required parameter|;
+    ok !$auth->verify_query({
+        app_id => '1234',
+        hoge => 'hoge',
+        fuga => 'fuga',
+        time => 123456,
+    });
 
-    throws_ok {
-        $auth->verify_query({
-            app_id => '1234',
-            hoge => 'hoge',
-            fuga => 'fuga',
-            sig => 'c4a23f5cb57d0bfe16a7ad4fc58ba0cccd92122efb144b0abf43315ff171a746',
-        })
-    } qr|Missing required parameter|;
+    ok !$auth->verify_query({
+        app_id => '1234',
+        hoge => 'hoge',
+        fuga => 'fuga',
+        sig => 'c4a23f5cb57d0bfe16a7ad4fc58ba0cccd92122efb144b0abf43315ff171a746',
+    });
 };
 
 subtest 'Test verify_query w/ required parameters' => sub {
