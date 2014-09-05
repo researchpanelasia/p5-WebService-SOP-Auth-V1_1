@@ -82,7 +82,7 @@ it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-yowcowvg E<lt>yoko_ohyama@voyagegroup.comE<gt>
+yowcowvg E<lt>yoko_ohyama [ at ] voyagegroup.comE<gt>
 
 =cut
 

@@ -19,4 +19,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-yowcowvg <yoko\_ohyama@voyagegroup.com>
+yowcowvg <yoko\_ohyama [ at ] voyagegroup.com>
