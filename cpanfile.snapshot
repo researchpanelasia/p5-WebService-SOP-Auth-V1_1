@@ -22,6 +22,16 @@ DISTRIBUTIONS
       strict 0
       version 0.88
       warnings 0
+  Encode-Locale-1.03
+    pathname: G/GA/GAAS/Encode-Locale-1.03.tar.gz
+    provides:
+      Encode::Locale 1.03
+    requirements:
+      Encode 2
+      Encode::Alias 0
+      ExtUtils::MakeMaker 0
+      Test 0
+      perl 5.008
   ExtUtils-Config-0.008
     pathname: L/LE/LEONT/ExtUtils-Config-0.008.tar.gz
     provides:
@@ -60,6 +70,62 @@ DISTRIBUTIONS
       File::Spec 0
       strict 0
       warnings 0
+  HTTP-Date-6.02
+    pathname: G/GA/GAAS/HTTP-Date-6.02.tar.gz
+    provides:
+      HTTP::Date 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Time::Local 0
+      perl 5.006002
+  HTTP-Message-6.06
+    pathname: G/GA/GAAS/HTTP-Message-6.06.tar.gz
+    provides:
+      HTTP::Config 6.00
+      HTTP::Headers 6.05
+      HTTP::Headers::Auth 6.00
+      HTTP::Headers::ETag 6.00
+      HTTP::Headers::Util 6.03
+      HTTP::Message 6.06
+      HTTP::Request 6.00
+      HTTP::Request::Common 6.04
+      HTTP::Response 6.04
+      HTTP::Status 6.03
+    requirements:
+      Compress::Raw::Zlib 0
+      Encode 2.21
+      Encode::Locale 1
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      IO::Compress::Bzip2 2.021
+      IO::Compress::Deflate 0
+      IO::Compress::Gzip 0
+      IO::HTML 0
+      IO::Uncompress::Bunzip2 2.021
+      IO::Uncompress::Gunzip 0
+      IO::Uncompress::Inflate 0
+      IO::Uncompress::RawInflate 0
+      LWP::MediaTypes 6
+      MIME::Base64 2.1
+      MIME::QuotedPrint 0
+      URI 1.10
+      perl 5.008001
+  IO-HTML-1.001
+    pathname: C/CJ/CJM/IO-HTML-1.001.tar.gz
+    provides:
+      IO::HTML 1.001
+    requirements:
+      Carp 0
+      Encode 2.10
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.30
+  LWP-MediaTypes-6.02
+    pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
+    provides:
+      LWP::MediaTypes 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006002
   Module-Build-0.4210
     pathname: L/LE/LEONT/Module-Build-0.4210.tar.gz
     provides:
@@ -112,10 +178,10 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.008000
       version 0.87
-  Module-Build-Tiny-0.037
-    pathname: L/LE/LEONT/Module-Build-Tiny-0.037.tar.gz
+  Module-Build-Tiny-0.038
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.038.tar.gz
     provides:
-      Module::Build::Tiny 0.037
+      Module::Build::Tiny 0.038
     requirements:
       CPAN::Meta 0
       DynaLoader 0
@@ -202,6 +268,26 @@ DISTRIBUTIONS
       Test::Builder 0.82
       Test::More 0.98
       autodie 0
+      parent 0
+      perl 5.008001
+  Test-Requires-0.08
+    pathname: T/TO/TOKUHIROM/Test-Requires-0.08.tar.gz
+    provides:
+      Test::Requires 0.08
+    requirements:
+      ExtUtils::MakeMaker 6.64
+      Test::Builder::Module 0
+      Test::More 0.61
+      perl 5.008_001
+  Test-Stub-0.04
+    pathname: T/TO/TOKUHIROM/Test-Stub-0.04.tar.gz
+    provides:
+      Test::Stub 0.04
+    requirements:
+      Exporter 0
+      Module::Build 0.38
+      Test::More 0.98
+      Test::Requires 0
       parent 0
       perl 5.008001
   URI-1.64
