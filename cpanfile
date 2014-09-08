@@ -3,6 +3,7 @@ requires 'perl', '5.008001';
 requires 'Carp';
 requires 'Digest::SHA';
 requires 'HTTP::Request::Common';
+requires 'JSON::XS';
 requires 'URI';
 
 on 'test' => sub {
