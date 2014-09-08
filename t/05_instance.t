@@ -46,7 +46,7 @@ subtest 'Test create_request fail for unknown type' => sub {
         my $req = $auth->create_request(
             GET_HOGE => '/' => { hoge => 'fuga' }
         );
-    } qr|Can't locate object method "create_request"|;
+    } qr|"create_request"|;
 };
 
 subtest 'Test create_request for GET' => sub {

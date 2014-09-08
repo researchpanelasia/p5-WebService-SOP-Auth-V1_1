@@ -33,7 +33,7 @@ subtest 'Test create_request fail' => sub {
         $class->create_request(
             '/hoge', { hoge => 'hoge', time => '1234' }, 'hogehoge',
         )
-    } qr|Can't locate object method "query_form"|;
+    } qr|"query_form"|;
 };
 
 subtest 'Test create_request OK' => sub {
