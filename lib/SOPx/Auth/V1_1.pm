@@ -9,6 +9,7 @@ use Carp ();
 use SOPx::Auth::V1_1::Request::GET;
 use SOPx::Auth::V1_1::Request::POST;
 use SOPx::Auth::V1_1::Request::POST_JSON;
+use SOPx::Auth::V1_1::Util qw(is_signature_valid);
 use URI;
 
 sub new {
@@ -40,24 +41,10 @@ sub create_request {
     );
 }
 
-#sub sign_query {
-#    my ($self, $query) = @_;
-#    $query->{time} ||= time;
-#    +{
-#        %$query,
-#        sig => $self->generate_signature($query),
-#    };
-#}
-#
-#sub verify_query {
-#    my ($self, $query) = @_;
-#
-#    return if not $query->{sig}
-#           or not $query->{time};
-#
-#    my $sig = delete $query->{sig};
-#    $self->generate_signature($query) eq $sig;
-#}
+sub verify_signature {
+    my ($self, $sig, $params) = @_;
+    is_signature_valid($sig, $params, $self->app_secret);
+}
 
 1;
 __END__
@@ -77,10 +64,32 @@ SOPx::Auth::V1_1 - SOP version 1.1 authentication module
         app_secret => 'hogehoge',
     });
 
+    my $req = $auth->create_request(
+        GET => '/' => {
+            hoge => 'hoge',
+            fuga => 'fuga',
+        },
+    );
+
+    my $res = LWP::UserAgent->new->request($req);
+
 
 =head1 DESCRIPTION
 
 SOPx::Auth::V1_1 is an authentication for SOP version 1.1.
+
+=head1 METHODS
+
+=head2 new
+
+Creates a new instance.
+C<app_id>, C<app_secret> are required, while C<time> is optional.
+
+=item create_request
+
+Creates a new L<HTTP::Request> object for API request.
+
+=back
 
 =head1 LICENSE
 
