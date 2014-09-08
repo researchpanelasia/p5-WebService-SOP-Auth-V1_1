@@ -3,8 +3,9 @@ use strict;
 use warnings;
 use Carp ();
 use Digest::SHA qw(hmac_sha256_hex);
-use HTTP::Request::Common qw(GET POST);
-use JSON::XS qw(encode_json);
+use Exporter qw(import);
+
+our @EXPORT_OK = qw( create_signature );
 
 sub create_signature {
     my ($params, $app_secret) = @_;
@@ -36,46 +37,6 @@ sub create_string_from_arrayref {
             $_;
         } @$params
     );
-}
-
-sub create_get_request {
-    my ($uri, $params, $app_secret) = @_;
-
-    Carp::croak('Missing required parameter: time')
-            if not $params->{time};
-
-    $uri->query_form({
-        %$params,
-        sig => create_signature($params, $app_secret),
-    });
-    GET $uri;
-}
-
-sub create_post_request {
-    my ($uri, $params, $app_secret) = @_;
-
-    Carp::croak('Missing required parameter: time')
-            if not $params->{time};
-
-    POST $uri => {
-        %$params,
-        sig => create_signature($params, $app_secret),
-    };
-}
-
-sub create_post_json_request {
-    my ($uri, $params, $app_secret) = @_;
-
-    Carp::croak('Missing required parameter: time')
-            if not $params->{time};
-
-    my $content = encode_json($params);
-    my $sig = create_signature($content, $app_secret);
-
-    my $req = POST $uri, Content => $content;
-    $req->headers->header('content-type' => 'application/json');
-    $req->headers->header('x-sop-sig' => $sig);
-    $req;
 }
 
 1;

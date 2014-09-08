@@ -6,7 +6,10 @@ use warnings;
 our $VERSION = "0.01";
 
 use Carp ();
-use Digest::SHA qw(hmac_sha256_hex);
+use SOPx::Auth::V1_1::Request::GET;
+use SOPx::Auth::V1_1::Request::POST;
+use SOPx::Auth::V1_1::Request::POST_JSON;
+use URI;
 
 sub new {
     my ($class, $args) = @_;
@@ -16,43 +19,45 @@ sub new {
         Carp::croak("Missing required parameter: ${_}") if not $args->{$_};
     } for qw( app_id app_secret );
 
+    $args->{time} = time if not $args->{time};
+
     bless $args, $class;
 }
 
 sub app_id     { $_[0]->{app_id} }
 sub app_secret { $_[0]->{app_secret} }
+sub time       { $_[0]->{time} }
 
-sub generate_signature {
-    my ($self, $query) = @_;
+sub create_request {
+    my ($self, $type, $uri, $params) = @_;
+    $uri = URI->new($uri) if not ref $uri;
 
-    Carp::croak "Missing required parameter: time" if not $query->{time};
-
-    my $query_string = join(
-        '&',
-        map { $_. '='. ($query->{$_} || '') }
-        sort { $a cmp $b } keys %$query
+    my $request_maker = "SOPx::Auth::V1_1::Request::${type}";
+    $request_maker->create_request(
+        $uri,
+        { %$params, time => $self->time },
+        $self->app_secret,
     );
-    hmac_sha256_hex($query_string, $self->app_secret);
 }
 
-sub sign_query {
-    my ($self, $query) = @_;
-    $query->{time} ||= time;
-    +{
-        %$query,
-        sig => $self->generate_signature($query),
-    };
-}
-
-sub verify_query {
-    my ($self, $query) = @_;
-
-    return if not $query->{sig}
-           or not $query->{time};
-
-    my $sig = delete $query->{sig};
-    $self->generate_signature($query) eq $sig;
-}
+#sub sign_query {
+#    my ($self, $query) = @_;
+#    $query->{time} ||= time;
+#    +{
+#        %$query,
+#        sig => $self->generate_signature($query),
+#    };
+#}
+#
+#sub verify_query {
+#    my ($self, $query) = @_;
+#
+#    return if not $query->{sig}
+#           or not $query->{time};
+#
+#    my $sig = delete $query->{sig};
+#    $self->generate_signature($query) eq $sig;
+#}
 
 1;
 __END__
