@@ -1,6 +1,5 @@
 use strict;
 use warnings;
-use Data::Dumper;
 use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
