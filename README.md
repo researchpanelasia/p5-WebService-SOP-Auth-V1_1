@@ -18,7 +18,7 @@ SOPx::Auth::V1\_1 - SOP v1.1 authentication module
 
 In your HTML,
 
-    <script type="text/javascript" src="<: $req.uri.as_string :>"></script>
+    <script src="<: $req.uri.as_string :>"></script>
 
 # DESCRIPTION
 

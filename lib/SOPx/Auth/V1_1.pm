@@ -32,7 +32,6 @@ sub time       { $_[0]->{time} }
 sub create_request {
     my ($self, $type, $uri, $params) = @_;
     $uri = URI->new($uri) if not ref $uri;
-
     my $request_maker = "SOPx::Auth::V1_1::Request::${type}";
     $request_maker->create_request(
         $uri,
@@ -59,20 +58,27 @@ SOPx::Auth::V1_1 - SOP version 1.1 authentication module
 
     use SOPx::Auth::V1_1;
 
+When making a GET request to API:
+
     my $auth = SOPx::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
 
     my $req = $auth->create_request(
-        GET => '/' => {
+        GET => 'https://<API_HOST>/path/to/endpoint' => {
             hoge => 'hoge',
             fuga => 'fuga',
         },
     );
+    #=> HTTP::Request object
 
     my $res = LWP::UserAgent->new->request($req);
+    #=> HTTP::Response object
 
+When embedding JavaScript URL in page:
+
+    <script src="<: $req.uri.as_string :>"></script>
 
 =head1 DESCRIPTION
 
@@ -80,16 +86,35 @@ SOPx::Auth::V1_1 is an authentication for SOP version 1.1.
 
 =head1 METHODS
 
-=head2 new
+=head2 new( \%options )
 
 Creates a new instance.
-C<app_id>, C<app_secret> are required, while C<time> is optional.
 
-=item create_request
+Possible options:
+
+=over 4
+
+=item C<app_id>
+
+(Required) Your C<app_id>.
+
+=item C<app_secret>
+
+(Required) Your C<app_secret>.
+
+=item C<time>
+
+(Optional) POSIX time.
+
+=back
+
+=head2 create_request( $type, $uri, $params )
 
 Creates a new L<HTTP::Request> object for API request.
 
-=back
+=head2 verify_signature( $sig, $params )
+
+Verifies if request signature is valid.
 
 =head1 LICENSE
 
