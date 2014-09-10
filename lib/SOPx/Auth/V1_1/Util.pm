@@ -27,20 +27,43 @@ sub create_string_from_hashref {
     );
 }
 
-#sub create_string_from_arrayref {
-#    my $params = shift;
-#    join(
-#        '&',
-#        map {
-#            Carp::croak("Structured data not allowed") if ref $_;
-#            $_;
-#        } @$params
-#    );
-#}
-
 sub is_signature_valid {
     my ($sig, $params, $app_secret) = @_;
     $sig eq create_signature($params, $app_secret);
 }
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+SOPx::Auth::V1_1::Util - SOP version 1.1 authentication utility
+
+=head1 SYNOPSIS
+
+    use SOPx::Auth::V1_1 qw(create_signature is_signature_valid);
+
+When creating a signature:
+
+    my $sig = create_signature($params, $app_secret);
+    #=> HMAC SHA256 hash signature
+
+    my $is_valid = is_signature_valid($sig, $params, $app_secret);
+    #=> Validation result
+
+=head1 METHODS
+
+=head2 create_signature( $params, $app_secret )
+
+Creates a HMAC SHA256 hash signature.
+
+=head2 create_string_from_hashref( $params )
+
+Creates a string from parameters in type hashref.
+
+=head2 is_signature_valid( $sig, $params, $app_secret )
+
+Validates if a signature is valid for given parameters.

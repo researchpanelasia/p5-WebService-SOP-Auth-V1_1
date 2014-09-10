@@ -19,3 +19,26 @@ sub create_request {
 }
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+SOPx::Auth::V1_1::Request::POST
+
+=head1 DESCRIPTION
+
+To create an L<HTTP::Request> object for given C<POST> request.
+
+=head1 METHODS
+
+=head2 $class->create_request( $uri, $params, $app_secret )
+
+Returns L<HTTP::Request> object for a POST request.
+Request parameters including signature are gathered as POST parameters.
+
+=head1 SEE ALSO
+
+L<HTTP::Request>
