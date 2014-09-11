@@ -23,7 +23,7 @@ sub create_string_from_hashref {
         map {
             Carp::croak("Structured data not allowed") if ref $params->{$_};
             $_. '='. ($params->{$_} || '');
-        } sort { $a cmp $b } keys %$params
+        } sort { $a cmp $b } grep { !m/^sop_/ } keys %$params
     );
 }
 
