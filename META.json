@@ -1,7 +1,7 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "SOP version 1.1 authentication module",
    "author" : [
-      "yowcowvg <yoko_ohyama@voyagegroup.com>"
+      "yowcowvg <yoko_ohyama [ at ] voyagegroup.com>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.142060",
@@ -42,16 +42,39 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
+            "Digest::SHA" : "0",
+            "HTTP::Request::Common" : "0",
+            "JSON::XS" : "0",
+            "URI" : "0",
             "perl" : "5.008001"
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Test::Exception" : "0",
+            "Test::Mock::Guard" : "0",
+            "Test::More" : "0.98",
+            "Test::Pretty" : "0",
+            "Test::Stub" : "0"
          }
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1/issues"
+      },
+      "homepage" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/researchpanelasia/p5-SOPx-Auth-V1_1.git",
+         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1"
+      }
+   },
    "version" : "0.01",
-   "x_authority" : "cpan:YOWCOW"
+   "x_authority" : "cpan:YOWCOW",
+   "x_contributors" : [
+      "yowcowvg <yoko_ohyama@voyagegroup.com>"
+   ]
 }
