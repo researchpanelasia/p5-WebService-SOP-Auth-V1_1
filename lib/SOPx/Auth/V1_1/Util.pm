@@ -4,8 +4,11 @@ use warnings;
 use Carp ();
 use Digest::SHA qw(hmac_sha256_hex);
 use Exporter qw(import);
+use JSON::XS qw(decode_json);
 
 our @EXPORT_OK = qw( create_signature is_signature_valid );
+
+our $SIG_VALID_FOR_SEC = 10 * 60; # Valid for 10 min by default
 
 sub create_signature {
     my ($params, $app_secret) = @_;
@@ -28,7 +31,16 @@ sub create_string_from_hashref {
 }
 
 sub is_signature_valid {
-    my ($sig, $params, $app_secret) = @_;
+    my ($sig, $params, $app_secret, $time) = @_;
+    $time ||= time;
+
+    my $req_time = ref($params) ? $params->{time}
+                 : decode_json($params)->{time};
+
+    return if not $req_time;
+    return if $req_time < ($time - $SIG_VALID_FOR_SEC)
+           or $req_time > ($time + $SIG_VALID_FOR_SEC);
+
     $sig eq create_signature($params, $app_secret);
 }
 
@@ -64,6 +76,7 @@ Creates a HMAC SHA256 hash signature.
 
 Creates a string from parameters in type hashref.
 
-=head2 is_signature_valid( $sig, $params, $app_secret )
+=head2 is_signature_valid( $sig, $params, $app_secret, $time )
 
 Validates if a signature is valid for given parameters.
+C<$time> is optional where C<time()> is used by default.

@@ -42,7 +42,7 @@ sub create_request {
 
 sub verify_signature {
     my ($self, $sig, $params) = @_;
-    is_signature_valid($sig, $params, $self->app_secret);
+    is_signature_valid($sig, $params, $self->app_secret, $self->time);
 }
 
 1;
