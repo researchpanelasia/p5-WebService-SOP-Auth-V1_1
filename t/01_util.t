@@ -54,6 +54,17 @@ subtest 'Test is_signature_valid' => sub {
     my $now = 100_000;
     my $valid_for = $SOPx::Auth::V1_1::Util::SIG_VALID_FOR_SEC;
 
+    subtest 'No `time` in params' => sub {
+        my $params = { aaa => 'aaa', bbb => 'bbb', };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok ! SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig, $params, 'hogehoge',
+        );
+    };
+
     subtest 'Out of range time (too old)' => sub {
         my $time = $now - $valid_for - 1;
         my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
