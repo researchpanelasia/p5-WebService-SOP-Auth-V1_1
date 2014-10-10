@@ -4,7 +4,7 @@
       "yowcowvg <yoko_ohyama [ at ] voyagegroup.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.142060",
+   "generated_by" : "Minilla/v2.1.3, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -63,18 +63,19 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1/issues"
+         "web" : "https://git@github.com/researchpanelasia/p5-SOPx-Auth-V1_1/issues"
       },
-      "homepage" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1",
+      "homepage" : "https://git@github.com/researchpanelasia/p5-SOPx-Auth-V1_1",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/researchpanelasia/p5-SOPx-Auth-V1_1.git",
-         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1"
+         "url" : "git://git@github.com/researchpanelasia/p5-SOPx-Auth-V1_1.git",
+         "web" : "https://git@github.com/researchpanelasia/p5-SOPx-Auth-V1_1"
       }
    },
    "version" : "0.01",
    "x_authority" : "cpan:YOWCOW",
    "x_contributors" : [
-      "yowcowvg <yoko_ohyama@voyagegroup.com>"
+      "yowcowvg <yoko_ohyama@voyagegroup.com>",
+      "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>"
    ]
 }

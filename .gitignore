@@ -28,3 +28,6 @@ cover_db/
 MYMETA.*
 
 /SOPx-Auth-V1_1-*
+/.build
+!Build/
+!META.json
