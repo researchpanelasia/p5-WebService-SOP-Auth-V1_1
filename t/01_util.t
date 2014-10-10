@@ -50,24 +50,69 @@ subtest 'Test create_signature' => sub {
 };
 
 subtest 'Test is_signature_valid' => sub {
-    ok SOPx::Auth::V1_1::Util::is_signature_valid(
-        '2fbfe87e54cc53036463633ef29beeaa4d740e435af586798917826d9e525112' => {
-            ccc => 'ccc',
-            bbb => 'bbb',
-            aaa => 'aaa',
-        },
-        'hogehoge',
-    );
 
-    ok SOPx::Auth::V1_1::Util::is_signature_valid(
-        'b85fb65238287bb3ac0db91140db581290ae9216d8737a2e06f8ea9407c79ae8' => '{"msg":"This is JSON data"}',
-        'hogehoge'
-    );
+    my $now = 100_000;
+    my $valid_for = $SOPx::Auth::V1_1::Util::SIG_VALID_FOR_SEC;
 
-    ok ! SOPx::Auth::V1_1::Util::is_signature_valid(
-        'b85fb65238287bb3ac0db91140db581290ae9216d8737a2e06f8ea9407c79ae8' => '{"msg":"This is JSON data"}',
-        'hogehoge-hoge',
-    );
+    subtest 'Out of range time (too old)' => sub {
+        my $time = $now - $valid_for - 1;
+        my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok ! SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig, $params, 'hogehoge', $now,
+        );
+    };
+
+    subtest 'In range (lower limit)' => sub {
+        my $time = $now - $valid_for;
+        my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig, $params, 'hogehoge', $now,
+        );
+    };
+
+    subtest 'In range (wrong sig value)' => sub {
+        my $time = $now;
+        my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok ! SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig. 'x', $params, 'hogehoge', $now,
+        );
+    };
+
+    subtest 'In range (upper limit)' => sub {
+        my $time = $now + $valid_for;
+        my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig, $params, 'hogehoge', $now,
+        );
+    };
+
+    subtest 'Out of range (too new)' => sub {
+        my $time = $now + $valid_for + 1;
+        my $params = { aaa => 'aaa', bbb => 'bbb', time => $time };
+        my $sig = SOPx::Auth::V1_1::Util::create_signature(
+            $params => 'hogehoge',
+        );
+
+        ok ! SOPx::Auth::V1_1::Util::is_signature_valid(
+            $sig, $params, 'hogehoge', $now,
+        );
+    };
 };
 
 done_testing;
