@@ -95,7 +95,7 @@ subtest 'Test verify_request' => sub {
     my $auth = $class->new({
         app_id => '1',
         app_secret => 'hogehoge',
-        time => '1234',
+        time => time,
     });
 
     subtest 'Verify JSON' => sub {

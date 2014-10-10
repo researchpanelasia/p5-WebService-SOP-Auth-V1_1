@@ -4,6 +4,7 @@ use warnings;
 use Carp ();
 use Digest::SHA qw(hmac_sha256_hex);
 use Exporter qw(import);
+use JSON::XS qw(decode_json);
 
 our @EXPORT_OK = qw( create_signature is_signature_valid );
 
@@ -33,9 +34,12 @@ sub is_signature_valid {
     my ($sig, $params, $app_secret, $time) = @_;
     $time ||= time;
 
-    return if not defined $params->{time};
-    return if $params->{time} < ($time - $SIG_VALID_FOR_SEC)
-           or $params->{time} > ($time + $SIG_VALID_FOR_SEC);
+    my $req_time = ref($params) ? $params->{time}
+                 : decode_json($params)->{time};
+
+    return if not $req_time;
+    return if $req_time < ($time - $SIG_VALID_FOR_SEC)
+           or $req_time > ($time + $SIG_VALID_FOR_SEC);
 
     $sig eq create_signature($params, $app_secret);
 }
