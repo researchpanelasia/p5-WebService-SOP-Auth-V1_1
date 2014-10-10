@@ -75,7 +75,7 @@
    "version" : "0.01",
    "x_authority" : "cpan:YOWCOW",
    "x_contributors" : [
-      "yowcowvg <yoko_ohyama@voyagegroup.com>",
-      "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>"
+      "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",
+      "yowcowvg <yoko_ohyama@voyagegroup.com>"
    ]
 }
