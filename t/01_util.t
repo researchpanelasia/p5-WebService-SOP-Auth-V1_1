@@ -124,6 +124,17 @@ subtest 'Test is_signature_valid' => sub {
             $sig, $params, 'hogehoge', $now,
         );
     };
+
+    subtest 'Malformed JSON' => sub {
+        dies_ok {
+            SOPx::Auth::V1_1::Util::is_signature_valid(
+                'signature',
+                '{"mal":"formed"',
+                'hogehoge',
+                '1234',
+            );
+        } 'Fails when string is not JSON';
+    };
 };
 
 done_testing;
