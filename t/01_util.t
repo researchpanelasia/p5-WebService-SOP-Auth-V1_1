@@ -26,22 +26,6 @@ subtest 'Test create_string_from_hashref' => sub {
     } qr|not allowed|;
 };
 
-SKIP: {
-    skip 'create_string_from_arrayref is not in use' => 1;
-
-    subtest 'Test create_string_from_arrayref' => sub {
-        is_deeply SOPx::Auth::V1_1::Util::create_string_from_arrayref([
-            qw( zzz yyy xxx )
-        ]) => 'zzz&yyy&xxx';
-
-        throws_ok {
-            SOPx::Auth::V1_1::Util::create_string_from_arrayref([
-                { hoge => 'fuga' },
-            ])
-        } qr|not allowed|;
-    };
-};
-
 subtest 'Test create_signature' => sub {
 
     is SOPx::Auth::V1_1::Util::create_signature({
