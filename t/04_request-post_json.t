@@ -1,14 +1,14 @@
 use strict;
 use warnings;
 use JSON::XS qw(decode_json);
-use SOPx::Auth::V1_1::Request::POST_JSON;
+use WebService::SOP::Auth::V1_1::Request::POST_JSON;
 use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
 use Test::Pretty;
 use URI;
 
-my $class = 'SOPx::Auth::V1_1::Request::POST_JSON';
+my $class = 'WebService::SOP::Auth::V1_1::Request::POST_JSON';
 
 subtest 'Test create_request fail' => sub {
     my $uri = URI->new('http://hoge/get');

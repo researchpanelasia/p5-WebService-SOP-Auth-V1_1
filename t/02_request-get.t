@@ -1,12 +1,12 @@
 use strict;
 use warnings;
-use SOPx::Auth::V1_1::Request::GET;
+use WebService::SOP::Auth::V1_1::Request::GET;
 use Test::Exception;
 use Test::More;
 use Test::Pretty;
 use URI;
 
-my $class = 'SOPx::Auth::V1_1::Request::GET';
+my $class = 'WebService::SOP::Auth::V1_1::Request::GET';
 
 subtest 'Test create_request fail' => sub {
     my $uri = URI->new('http://hoge/get');
