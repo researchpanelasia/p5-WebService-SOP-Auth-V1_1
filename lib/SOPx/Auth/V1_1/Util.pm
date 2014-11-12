@@ -52,7 +52,7 @@ __END__
 
 =head1 NAME
 
-SOPx::Auth::V1_1::Util - SOP version 1.1 authentication utility
+SOPx::Auth::V1_1::Util - SOP version 1.1 authentication handy utilities
 
 =head1 SYNOPSIS
 
@@ -60,17 +60,26 @@ SOPx::Auth::V1_1::Util - SOP version 1.1 authentication utility
 
 When creating a signature:
 
-    my $sig = create_signature($params, $app_secret);
-    #=> HMAC SHA256 hash signature
+    my $params = {
+        app_id => 12345,
+        app_mid => 'my-uniq-id-12345',
+        time => 123456,
+    };
+    $params->{sig} = create_signature($params, $app_secret);
+    #=> "$params" is signed with a valid HMAC SHA256 hash signature.
 
+or when validating a signature:
+
+    my $sig = delete $params->{sig};
     my $is_valid = is_signature_valid($sig, $params, $app_secret);
-    #=> Validation result
+    #=> "$is_valid" is 1 if "sig" value is acceptable.
 
 =head1 METHODS
 
 =head2 create_signature( $params, $app_secret )
 
 Creates a HMAC SHA256 hash signature.
+C<$params> can either be a SCALAR or a HASH-ref.
 
 =head2 create_string_from_hashref( $params )
 
@@ -80,3 +89,21 @@ Creates a string from parameters in type hashref.
 
 Validates if a signature is valid for given parameters.
 C<$time> is optional where C<time()> is used by default.
+
+=head1 SEE ALSO
+
+L<SOPx::Auth::V1_1>
+
+=head1 LICENSE
+
+Copyright (C) yowcowvg.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+yowcowvg E<lt>yoko_ohyama [ at ] voyagegroup.comE<gt>
+
+=cut
+
