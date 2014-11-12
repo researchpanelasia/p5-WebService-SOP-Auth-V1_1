@@ -1,4 +1,4 @@
-package SOPx::Auth::V1_1;
+package WebService::SOP::Auth::V1_1;
 use 5.008001;
 use strict;
 use warnings;
@@ -6,10 +6,10 @@ use warnings;
 our $VERSION = "0.01";
 
 use Carp ();
-use SOPx::Auth::V1_1::Request::GET;
-use SOPx::Auth::V1_1::Request::POST;
-use SOPx::Auth::V1_1::Request::POST_JSON;
-use SOPx::Auth::V1_1::Util qw(is_signature_valid);
+use WebService::SOP::Auth::V1_1::Request::GET;
+use WebService::SOP::Auth::V1_1::Request::POST;
+use WebService::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
 use URI;
 
 sub new {
@@ -32,7 +32,7 @@ sub time       { $_[0]->{time} }
 sub create_request {
     my ($self, $type, $uri, $params) = @_;
     $uri = URI->new($uri) if not ref $uri;
-    my $request_maker = "SOPx::Auth::V1_1::Request::${type}";
+    my $request_maker = "WebService::SOP::Auth::V1_1::Request::${type}";
     $request_maker->create_request(
         $uri,
         { %$params, time => $self->time },
@@ -52,15 +52,15 @@ __END__
 
 =head1 NAME
 
-SOPx::Auth::V1_1 - SOP version 1.1 authentication module
+WebService::SOP::Auth::V1_1 - SOP version 1.1 authentication module
 
 =head1 SYNOPSIS
 
-    use SOPx::Auth::V1_1;
+    use WebService::SOP::Auth::V1_1;
 
 When making a GET request to API:
 
-    my $auth = SOPx::Auth::V1_1->new({
+    my $auth = WebService::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
@@ -82,7 +82,7 @@ When embedding JavaScript URL in page:
 
 =head1 DESCRIPTION
 
-SOPx::Auth::V1_1 is an authentication for SOP version 1.1.
+WebService::SOP::Auth::V1_1 is an authentication for SOP version 1.1.
 
 =head1 METHODS
 
@@ -130,7 +130,7 @@ Verifies if request signature is valid.
 
 =head1 SEE ALSO
 
-L<SOPx::Auth::V1_1::Util>
+L<WebService::SOP::Auth::V1_1::Util>
 
 =head1 LICENSE
 

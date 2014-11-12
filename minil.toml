@@ -1,4 +1,4 @@
-name = "SOPx-Auth-V1_1"
+name = "WebService-SOP-Auth-V1_1"
 badges = ["travis"]
 authority="cpan:YOWCOW"
 

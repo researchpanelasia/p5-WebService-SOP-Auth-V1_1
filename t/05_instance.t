@@ -4,9 +4,9 @@ use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
 use Test::Pretty;
-use SOPx::Auth::V1_1;
+use WebService::SOP::Auth::V1_1;
 
-my $class = 'SOPx::Auth::V1_1';
+my $class = 'WebService::SOP::Auth::V1_1';
 
 subtest 'Test new w/o required params' => sub {
     throws_ok { $class->new } qr|Missing required parameter|;

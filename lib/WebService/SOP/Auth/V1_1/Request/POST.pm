@@ -1,10 +1,9 @@
-package SOPx::Auth::V1_1::Request::POST_JSON;
+package WebService::SOP::Auth::V1_1::Request::POST;
 use strict;
 use warnings;
 use Carp ();
-use JSON::XS qw(encode_json);
 use HTTP::Request::Common qw(POST);
-use SOPx::Auth::V1_1::Util qw(create_signature);
+use WebService::SOP::Auth::V1_1::Util qw(create_signature);
 
 sub create_request {
     my ($class, $uri, $params, $app_secret) = @_;
@@ -12,13 +11,10 @@ sub create_request {
     Carp::croak('Missing required parameter: time') if not $params->{time};
     Carp::croak('Missing app_secret') if not $app_secret;
 
-    my $content = encode_json($params);
-    my $sig = create_signature($content, $app_secret);
-
-    my $req = POST $uri, Content => $content;
-    $req->headers->header('content-type' => 'application/json');
-    $req->headers->header('x-sop-sig' => $sig);
-    $req;
+    POST $uri => {
+        %$params,
+        sig => create_signature($params, $app_secret),
+    };
 }
 
 1;
@@ -29,23 +25,23 @@ __END__
 
 =head1 NAME
 
-SOPx::Auth::V1_1::Request::POST_JSON
+WebService::SOP::Auth::V1_1::Request::POST
 
 =head1 DESCRIPTION
 
-To create a valid L<HTTP::Request> object for given C<POST> request parameters to send JSON data.
+To create a valid L<HTTP::Request> object for given C<POST> request parameters.
 
 =head1 METHODS
 
 =head2 $class->create_request( $uri, $params, $app_secret )
 
 Returns L<HTTP::Request> object for a POST request.
-Request parameters are gathered as a JSON data in request body, while signature is added as request header C<X-Sop-Sig>.
+Request parameters including signature are gathered as POST parameters.
 
 =head1 SEE ALSO
 
 L<HTTP::Request>
-L<SOPx::Auth::V1_1>
+L<WebService::SOP::Auth::V1_1>
 
 =head1 LICENSE
 
