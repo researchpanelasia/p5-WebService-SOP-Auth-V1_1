@@ -1,9 +1,9 @@
 use strict;
 use warnings;
-use WebService::SOP::Auth::V1_1::Util;
 use Test::Exception;
 use Test::More;
 use Test::Pretty;
+use WebService::SOP::Auth::V1_1::Util;
 
 subtest 'Test create_string_from_hashref' => sub {
     is WebService::SOP::Auth::V1_1::Util::create_string_from_hashref({

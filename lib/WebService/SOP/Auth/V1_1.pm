@@ -6,11 +6,11 @@ use warnings;
 our $VERSION = "0.01";
 
 use Carp ();
+use URI;
 use WebService::SOP::Auth::V1_1::Request::GET;
 use WebService::SOP::Auth::V1_1::Request::POST;
 use WebService::SOP::Auth::V1_1::Request::POST_JSON;
 use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
-use URI;
 
 sub new {
     my ($class, $args) = @_;

@@ -1,10 +1,10 @@
 use strict;
 use warnings;
-use WebService::SOP::Auth::V1_1::Request::GET;
 use Test::Exception;
 use Test::More;
 use Test::Pretty;
 use URI;
+use WebService::SOP::Auth::V1_1::Request::GET;
 
 my $class = 'WebService::SOP::Auth::V1_1::Request::GET';
 
