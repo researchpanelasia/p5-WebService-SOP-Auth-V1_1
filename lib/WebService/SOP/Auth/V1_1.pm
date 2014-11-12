@@ -82,7 +82,9 @@ When embedding JavaScript URL in page:
 
 =head1 DESCRIPTION
 
-WebService::SOP::Auth::V1_1 is an authentication for SOP version 1.1.
+WebService::SOP::Auth::V1_1 is an authentication module
+for L<SOP|http://console.partners.surveyon.com/> version 1.1
+by L<Research Panel Asia, Inc|http://www.researchpanelasia.com/>.
 
 =head1 METHODS
 
@@ -134,7 +136,7 @@ L<WebService::SOP::Auth::V1_1::Util>
 
 =head1 LICENSE
 
-Copyright (C) yowcowvg.
+Copyright (C) Research Panel Asia, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

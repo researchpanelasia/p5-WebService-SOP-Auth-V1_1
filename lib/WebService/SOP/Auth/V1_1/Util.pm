@@ -96,7 +96,7 @@ L<WebService::SOP::Auth::V1_1>
 
 =head1 LICENSE
 
-Copyright (C) yowcowvg.
+Copyright (C) Research Panel Asia, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
