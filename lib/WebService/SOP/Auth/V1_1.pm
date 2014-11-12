@@ -134,6 +134,8 @@ Verifies if request signature is valid.
 
 L<WebService::SOP::Auth::V1_1::Util>
 
+Research Panel Asia, Inc. website L<http://www.researchpanelasia.com/>
+
 =head1 LICENSE
 
 Copyright (C) Research Panel Asia, Inc.
