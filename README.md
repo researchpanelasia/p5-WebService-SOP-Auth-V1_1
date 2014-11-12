@@ -79,6 +79,8 @@ Verifies if request signature is valid.
 
 [WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
 
+Research Panel Asia, Inc. website [http://www.researchpanelasia.com/](http://www.researchpanelasia.com/)
+
 # LICENSE
 
 Copyright (C) Research Panel Asia, Inc.
