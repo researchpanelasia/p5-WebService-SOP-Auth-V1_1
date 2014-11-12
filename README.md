@@ -53,6 +53,18 @@ Possible options:
 
     (Optional) POSIX time.
 
+## app\_id
+
+Gets `app_id` configured to instance.
+
+## app\_secret
+
+Gets `app_secret` configured to instance.
+
+## time
+
+Gets `time` configured to instance.
+
 ## create\_request( $type, $uri, $params )
 
 Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request.
@@ -60,6 +72,10 @@ Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for
 ## verify\_signature( $sig, $params )
 
 Verifies if request signature is valid.
+
+# SEE ALSO
+
+[SOPx::Auth::V1\_1::Util](https://metacpan.org/pod/SOPx::Auth::V1_1::Util)
 
 # LICENSE
 

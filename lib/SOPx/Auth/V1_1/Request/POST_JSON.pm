@@ -33,7 +33,7 @@ SOPx::Auth::V1_1::Request::POST_JSON
 
 =head1 DESCRIPTION
 
-To create an L<HTTP::Request> object for given C<POST> request to send JSON data.
+To create a valid L<HTTP::Request> object for given C<POST> request parameters to send JSON data.
 
 =head1 METHODS
 
@@ -45,3 +45,18 @@ Request parameters are gathered as a JSON data in request body, while signature 
 =head1 SEE ALSO
 
 L<HTTP::Request>
+L<SOPx::Auth::V1_1>
+
+=head1 LICENSE
+
+Copyright (C) yowcowvg.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+yowcowvg E<lt>yoko_ohyama [ at ] voyagegroup.comE<gt>
+
+=cut
+

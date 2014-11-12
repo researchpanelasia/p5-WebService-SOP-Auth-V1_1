@@ -29,7 +29,7 @@ SOPx::Auth::V1_1::Request::POST
 
 =head1 DESCRIPTION
 
-To create an L<HTTP::Request> object for given C<POST> request.
+To create a valid L<HTTP::Request> object for given C<POST> request parameters.
 
 =head1 METHODS
 
@@ -41,3 +41,18 @@ Request parameters including signature are gathered as POST parameters.
 =head1 SEE ALSO
 
 L<HTTP::Request>
+L<SOPx::Auth::V1_1>
+
+=head1 LICENSE
+
+Copyright (C) yowcowvg.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+yowcowvg E<lt>yoko_ohyama [ at ] voyagegroup.comE<gt>
+
+=cut
+

@@ -108,6 +108,18 @@ Possible options:
 
 =back
 
+=head2 app_id
+
+Gets C<app_id> configured to instance.
+
+=head2 app_secret
+
+Gets C<app_secret> configured to instance.
+
+=head2 time
+
+Gets C<time> configured to instance.
+
 =head2 create_request( $type, $uri, $params )
 
 Creates a new L<HTTP::Request> object for API request.
@@ -115,6 +127,10 @@ Creates a new L<HTTP::Request> object for API request.
 =head2 verify_signature( $sig, $params )
 
 Verifies if request signature is valid.
+
+=head1 SEE ALSO
+
+L<SOPx::Auth::V1_1::Util>
 
 =head1 LICENSE
 
