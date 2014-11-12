@@ -1,15 +1,15 @@
-[![Build Status](https://travis-ci.org/researchpanelasia/p5-SOPx-Auth-V1_1.svg?branch=master)](https://travis-ci.org/researchpanelasia/p5-SOPx-Auth-V1_1)
+[![Build Status](https://travis-ci.org/researchpanelasia/p5-WebService-SOP-Auth-V1_1.svg?branch=master)](https://travis-ci.org/researchpanelasia/p5-WebService-SOP-Auth-V1_1)
 # NAME
 
-SOPx::Auth::V1\_1 - SOP version 1.1 authentication module
+WebService::SOP::Auth::V1\_1 - SOP version 1.1 authentication module
 
 # SYNOPSIS
 
-    use SOPx::Auth::V1_1;
+    use WebService::SOP::Auth::V1_1;
 
 When making a GET request to API:
 
-    my $auth = SOPx::Auth::V1_1->new({
+    my $auth = WebService::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
@@ -31,7 +31,7 @@ When embedding JavaScript URL in page:
 
 # DESCRIPTION
 
-SOPx::Auth::V1\_1 is an authentication for SOP version 1.1.
+WebService::SOP::Auth::V1\_1 is an authentication for SOP version 1.1.
 
 # METHODS
 
@@ -75,7 +75,7 @@ Verifies if request signature is valid.
 
 # SEE ALSO
 
-[SOPx::Auth::V1\_1::Util](https://metacpan.org/pod/SOPx::Auth::V1_1::Util)
+[WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
 
 # LICENSE
 

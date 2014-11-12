@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "SOPx-Auth-V1_1",
+   "name" : "WebService-SOP-Auth-V1_1",
    "no_index" : {
       "directory" : [
          "t",
@@ -65,13 +65,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1/issues"
+         "web" : "https://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1/issues"
       },
-      "homepage" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1",
+      "homepage" : "https://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/researchpanelasia/p5-SOPx-Auth-V1_1.git",
-         "web" : "https://github.com/researchpanelasia/p5-SOPx-Auth-V1_1"
+         "url" : "git://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1.git",
+         "web" : "https://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1"
       }
    },
    "version" : "0.01",
