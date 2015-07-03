@@ -74,7 +74,7 @@
          "web" : "https://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_authority" : "cpan:YOWCOW",
    "x_contributors" : [
       "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",

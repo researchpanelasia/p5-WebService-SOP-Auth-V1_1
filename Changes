@@ -2,6 +2,8 @@ Revision history for Perl extension WebService-SOP-Auth-V1_1
 
 {{$NEXT}}
 
+0.02 2015-07-03T13:11:39Z
+
     - Rebuilt cpanfile.snapshot
     - Added more details and improved POD
 
