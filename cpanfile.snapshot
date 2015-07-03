@@ -42,6 +42,32 @@ DISTRIBUTIONS
       strict 0
       version 0.88
       warnings 0
+  CPAN-Meta-Requirements-2.133
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.133.tar.gz
+    provides:
+      CPAN::Meta::Requirements 2.133
+    requirements:
+      B 0
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      perl 5.006
+      strict 0
+      version 0.88
+      warnings 0
+  CPAN-Meta-YAML-0.016
+    pathname: D/DA/DAGOLDEN/CPAN-Meta-YAML-0.016.tar.gz
+    provides:
+      CPAN::Meta::YAML 0.016
+    requirements:
+      B 0
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      Scalar::Util 0
+      perl 5.008001
+      strict 0
+      warnings 0
   Class-Data-Inheritable-0.08
     pathname: T/TM/TMTM/Class-Data-Inheritable-0.08.tar.gz
     provides:
@@ -227,6 +253,51 @@ DISTRIBUTIONS
       File::Spec 0
       strict 0
       warnings 0
+  ExtUtils-MakeMaker-7.04
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-7.04.tar.gz
+    provides:
+      ExtUtils::Command::MM 7.04
+      ExtUtils::Liblist 7.04
+      ExtUtils::Liblist::Kid 7.04
+      ExtUtils::MM 7.04
+      ExtUtils::MM_AIX 7.04
+      ExtUtils::MM_Any 7.04
+      ExtUtils::MM_BeOS 7.04
+      ExtUtils::MM_Cygwin 7.04
+      ExtUtils::MM_DOS 7.04
+      ExtUtils::MM_Darwin 7.04
+      ExtUtils::MM_MacOS 7.04
+      ExtUtils::MM_NW5 7.04
+      ExtUtils::MM_OS2 7.04
+      ExtUtils::MM_QNX 7.04
+      ExtUtils::MM_UWIN 7.04
+      ExtUtils::MM_Unix 7.04
+      ExtUtils::MM_VMS 7.04
+      ExtUtils::MM_VOS 7.04
+      ExtUtils::MM_Win32 7.04
+      ExtUtils::MM_Win95 7.04
+      ExtUtils::MY 7.04
+      ExtUtils::MakeMaker 7.04
+      ExtUtils::MakeMaker::Config 7.04
+      ExtUtils::MakeMaker::Locale 7.04
+      ExtUtils::MakeMaker::_version 7.04
+      ExtUtils::MakeMaker::charstar 7.04
+      ExtUtils::MakeMaker::version 7.04
+      ExtUtils::MakeMaker::version::regex 7.04
+      ExtUtils::MakeMaker::version::vpp 7.04
+      ExtUtils::Mkbootstrap 7.04
+      ExtUtils::Mksymlists 7.04
+      ExtUtils::testlib 7.04
+      MM 7.04
+      MY 7.04
+    requirements:
+      Data::Dumper 0
+      DirHandle 0
+      Encode 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
   File-HomeDir-1.00
     pathname: A/AD/ADAMK/File-HomeDir-1.00.tar.gz
     provides:
@@ -511,18 +582,6 @@ DISTRIBUTIONS
       Try::Tiny 0
       strict 0
       warnings 0
-  Module-Pluggable-5.1
-    pathname: S/SI/SIMONW/Module-Pluggable-5.1.tar.gz
-    provides:
-      Devel::InnerPackage 0.4
-      Module::Pluggable 5.1
-      Module::Pluggable::Object 5.1
-    requirements:
-      File::Basename 0
-      File::Spec 3.00
-      Module::Build 0.38
-      Test::More 0.62
-      if 0
   Module-Runtime-0.014
     pathname: Z/ZE/ZEFRAM/Module-Runtime-0.014.tar.gz
     provides:
@@ -772,7 +831,6 @@ DISTRIBUTIONS
   Package-Stash-XS-0.28
     pathname: D/DO/DOY/Package-Stash-XS-0.28.tar.gz
     provides:
-      CompileTime undef
       Package::Stash::XS 0.28
     requirements:
       ExtUtils::MakeMaker 6.30
@@ -790,11 +848,25 @@ DISTRIBUTIONS
       Scalar::Util 1.18
       Test::More 0.42
       perl 5.00503
+  Parse-CPAN-Meta-1.4417
+    pathname: D/DA/DAGOLDEN/Parse-CPAN-Meta-1.4417.tar.gz
+    provides:
+      Parse::CPAN::Meta 1.4417
+    requirements:
+      CPAN::Meta::YAML 0.011
+      Carp 0
+      Encode 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0.80
+      JSON::PP 2.27200
+      perl 5.008001
+      strict 0
   Path-FindDev-0.5.2
     pathname: K/KE/KENTNL/Path-FindDev-0.5.2.tar.gz
     provides:
-      Path::FindDev 0.005002
-      Path::FindDev::Object 0.005002
+      Path::FindDev v0.5.2
+      Path::FindDev::Object v0.5.2
     requirements:
       Carp 0
       Class::Tiny 0.010
@@ -875,6 +947,25 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  PathTools-3.47
+    pathname: S/SM/SMUELLER/PathTools-3.47.tar.gz
+    provides:
+      Cwd 3.47
+      File::Spec 3.47
+      File::Spec::Cygwin 3.47
+      File::Spec::Epoc 3.47
+      File::Spec::Functions 3.47
+      File::Spec::Mac 3.47
+      File::Spec::OS2 3.47
+      File::Spec::Unix 3.47
+      File::Spec::VMS 3.47
+      File::Spec::Win32 3.47
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      Scalar::Util 0
+      Test 0
   Perl-Critic-1.123
     pathname: T/TH/THALJEF/Perl-Critic-1.123.tar.gz
     provides:
@@ -1072,9 +1163,6 @@ DISTRIBUTIONS
       Perl::Critic::Utils::Perl 1.123
       Perl::Critic::Violation 1.123
       Test::Perl::Critic::Policy 1.123
-      declaration 1.123
-      statement 1.123
-      subroutine 1.123
     requirements:
       B::Keywords 1.05
       Carp 0
@@ -1199,9 +1287,9 @@ DISTRIBUTIONS
     pathname: S/SA/SANKO/Readonly-2.00.tar.gz
     provides:
       Readonly 2.00
-      Readonly::Array 2.00
-      Readonly::Hash 2.00
-      Readonly::Scalar 2.00
+      Readonly::Array undef
+      Readonly::Hash undef
+      Readonly::Scalar undef
     requirements:
       CPAN::Meta 0
       CPAN::Meta::Prereqs 0
@@ -1286,6 +1374,13 @@ DISTRIBUTIONS
       Scalar::Util 1.14
       Test::More 0.42
       perl 5.005
+  Term-ANSIColor-4.03
+    pathname: R/RR/RRA/Term-ANSIColor-4.03.tar.gz
+    provides:
+      Term::ANSIColor 4.03
+    requirements:
+      Module::Build 0.28
+      perl 5.006
   Term-Encoding-0.02
     pathname: M/MI/MIYAGAWA/Term-Encoding-0.02.tar.gz
     provides:
@@ -1374,6 +1469,60 @@ DISTRIBUTIONS
       Try::Tiny 0.07
       strict 0
       warnings 0
+  Test-Harness-3.35
+    pathname: L/LE/LEONT/Test-Harness-3.35.tar.gz
+    provides:
+      App::Prove 3.35
+      App::Prove::State 3.35
+      App::Prove::State::Result 3.35
+      App::Prove::State::Result::Test 3.35
+      Harness::Hook undef
+      TAP::Base 3.35
+      TAP::Formatter::Base 3.35
+      TAP::Formatter::Color 3.35
+      TAP::Formatter::Console 3.35
+      TAP::Formatter::Console::ParallelSession 3.35
+      TAP::Formatter::Console::Session 3.35
+      TAP::Formatter::File 3.35
+      TAP::Formatter::File::Session 3.35
+      TAP::Formatter::Session 3.35
+      TAP::Harness 3.35
+      TAP::Harness::Env 3.35
+      TAP::Object 3.35
+      TAP::Parser 3.35
+      TAP::Parser::Aggregator 3.35
+      TAP::Parser::Grammar 3.35
+      TAP::Parser::Iterator 3.35
+      TAP::Parser::Iterator::Array 3.35
+      TAP::Parser::Iterator::Process 3.35
+      TAP::Parser::Iterator::Stream 3.35
+      TAP::Parser::IteratorFactory 3.35
+      TAP::Parser::Multiplexer 3.35
+      TAP::Parser::Result 3.35
+      TAP::Parser::Result::Bailout 3.35
+      TAP::Parser::Result::Comment 3.35
+      TAP::Parser::Result::Plan 3.35
+      TAP::Parser::Result::Pragma 3.35
+      TAP::Parser::Result::Test 3.35
+      TAP::Parser::Result::Unknown 3.35
+      TAP::Parser::Result::Version 3.35
+      TAP::Parser::Result::YAML 3.35
+      TAP::Parser::ResultFactory 3.35
+      TAP::Parser::Scheduler 3.35
+      TAP::Parser::Scheduler::Job 3.35
+      TAP::Parser::Scheduler::Spinner 3.35
+      TAP::Parser::Source 3.35
+      TAP::Parser::SourceHandler 3.35
+      TAP::Parser::SourceHandler::Executable 3.35
+      TAP::Parser::SourceHandler::File 3.35
+      TAP::Parser::SourceHandler::Handle 3.35
+      TAP::Parser::SourceHandler::Perl 3.35
+      TAP::Parser::SourceHandler::RawTAP 3.35
+      TAP::Parser::YAMLish::Reader 3.35
+      TAP::Parser::YAMLish::Writer 3.35
+      Test::Harness 3.35
+    requirements:
+      ExtUtils::MakeMaker 0
   Test-Mock-Guard-0.10
     pathname: X/XA/XAICRON/Test-Mock-Guard-0.10.tar.gz
     provides:
@@ -1493,6 +1642,7 @@ DISTRIBUTIONS
     pathname: T/TO/TOKUHIROM/Test-Stub-0.04.tar.gz
     provides:
       Test::Stub 0.04
+      Test::Stub::Driver undef
     requirements:
       Exporter 0
       Module::Build 0.38
