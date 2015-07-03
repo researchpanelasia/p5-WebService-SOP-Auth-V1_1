@@ -58,12 +58,15 @@ WebService::SOP::Auth::V1_1 - SOP version 1.1 authentication module
 
     use WebService::SOP::Auth::V1_1;
 
-When making a GET request to API:
+To create an instance:
 
     my $auth = WebService::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
+
+
+When making a GET request to API:
 
     my $req = $auth->create_request(
         GET => 'https://<API_HOST>/path/to/endpoint' => {
@@ -71,10 +74,19 @@ When making a GET request to API:
             fuga => 'fuga',
         },
     );
-    #=> HTTP::Request object
 
     my $res = LWP::UserAgent->new->request($req);
-    #=> HTTP::Response object
+
+When making a POST request with JSON data to API:
+
+    my $req = $auth->create_request(
+        POST_JSON => 'http://<API_HOST>/path/to/endpoint' => {
+            hoge => 'hoge',
+            fuga => 'fuga',
+        },
+    );
+
+    my $res = LWP::UserAgent->new->request($req);
 
 When embedding JavaScript URL in page:
 
@@ -126,12 +138,36 @@ Gets C<time> configured to instance.
 
 Creates a new L<HTTP::Request> object for API request.
 
+I<$type> can be one of followings:
+
+=over 4
+
+=item C<GET>
+
+For HTTP GET request to SOP endpoint with signature in query string as parameter
+B<sig>.
+
+=item C<POST>
+
+For HTTP POST request to SOP endpoint with signature in query string as
+parameter B<sig> of request content type C<application/x-www-form-urlencoded>.
+
+=item C<POST_JSON>
+
+For HTTP POST request to SOP endpoint with signature as request header
+C<X-Sop-Sig> of request content type C<application/json>.
+
+=back
+
 =head2 verify_signature( $sig, $params )
 
 Verifies if request signature is valid.
 
 =head1 SEE ALSO
 
+L<WebService::SOP::Auth::Request::GET>,
+L<WebService::SOP::Auth::Request::POST>,
+L<WebService::SOP::Auth::Request::POST_JSON>,
 L<WebService::SOP::Auth::V1_1::Util>
 
 Research Panel Asia, Inc. website L<http://www.researchpanelasia.com/>
