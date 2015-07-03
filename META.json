@@ -4,7 +4,7 @@
       "yowcowvg <yoko_ohyama [ at ] voyagegroup.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.2.0, CPAN::Meta::Converter version 2.142690",
+   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
@@ -79,5 +79,6 @@
    "x_contributors" : [
       "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",
       "yowcowvg <yoko_ohyama@voyagegroup.com>"
-   ]
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }
