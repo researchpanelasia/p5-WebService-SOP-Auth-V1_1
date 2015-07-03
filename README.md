@@ -7,12 +7,14 @@ WebService::SOP::Auth::V1\_1 - SOP version 1.1 authentication module
 
     use WebService::SOP::Auth::V1_1;
 
-When making a GET request to API:
+To create an instance:
 
     my $auth = WebService::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
+
+When making a GET request to API:
 
     my $req = $auth->create_request(
         GET => 'https://<API_HOST>/path/to/endpoint' => {
@@ -20,10 +22,19 @@ When making a GET request to API:
             fuga => 'fuga',
         },
     );
-    #=> HTTP::Request object
 
     my $res = LWP::UserAgent->new->request($req);
-    #=> HTTP::Response object
+
+When making a POST request with JSON data to API:
+
+    my $req = $auth->create_request(
+        POST_JSON => 'http://<API_HOST>/path/to/endpoint' => {
+            hoge => 'hoge',
+            fuga => 'fuga',
+        },
+    );
+
+    my $res = LWP::UserAgent->new->request($req);
 
 When embedding JavaScript URL in page:
 
@@ -71,12 +82,32 @@ Gets `time` configured to instance.
 
 Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request.
 
+_$type_ can be one of followings:
+
+- `GET`
+
+    For HTTP GET request to SOP endpoint with signature in query string as parameter
+    **sig**.
+
+- `POST`
+
+    For HTTP POST request to SOP endpoint with signature in query string as
+    parameter **sig** of request content type `application/x-www-form-urlencoded`.
+
+- `POST_JSON`
+
+    For HTTP POST request to SOP endpoint with signature as request header
+    `X-Sop-Sig` of request content type `application/json`.
+
 ## verify\_signature( $sig, $params )
 
 Verifies if request signature is valid.
 
 # SEE ALSO
 
+[WebService::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::GET),
+[WebService::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST),
+[WebService::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST_JSON),
 [WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
 
 Research Panel Asia, Inc. website [http://www.researchpanelasia.com/](http://www.researchpanelasia.com/)

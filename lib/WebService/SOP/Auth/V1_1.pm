@@ -165,9 +165,9 @@ Verifies if request signature is valid.
 
 =head1 SEE ALSO
 
-L<WebService::SOP::Auth::Request::GET>,
-L<WebService::SOP::Auth::Request::POST>,
-L<WebService::SOP::Auth::Request::POST_JSON>,
+L<WebService::SOP::Auth::V1_1::Request::GET>,
+L<WebService::SOP::Auth::V1_1::Request::POST>,
+L<WebService::SOP::Auth::V1_1::Request::POST_JSON>,
 L<WebService::SOP::Auth::V1_1::Util>
 
 Research Panel Asia, Inc. website L<http://www.researchpanelasia.com/>
