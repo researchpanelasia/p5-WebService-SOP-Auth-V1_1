@@ -105,9 +105,9 @@ Verifies if request signature is valid.
 
 # SEE ALSO
 
-[WebService::SOP::Auth::Request::GET](https://metacpan.org/pod/WebService::SOP::Auth::Request::GET),
-[WebService::SOP::Auth::Request::POST](https://metacpan.org/pod/WebService::SOP::Auth::Request::POST),
-[WebService::SOP::Auth::Request::POST\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::Request::POST_JSON),
+[WebService::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::GET),
+[WebService::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST),
+[WebService::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST_JSON),
 [WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
 
 Research Panel Asia, Inc. website [http://www.researchpanelasia.com/](http://www.researchpanelasia.com/)
