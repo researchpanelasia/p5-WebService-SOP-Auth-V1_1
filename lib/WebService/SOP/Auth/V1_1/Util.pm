@@ -8,14 +8,14 @@ use JSON::XS qw(decode_json);
 
 our @EXPORT_OK = qw( create_signature is_signature_valid );
 
-our $SIG_VALID_FOR_SEC = 10 * 60; # Valid for 10 min by default
+our $SIG_VALID_FOR_SEC = 10 * 60;    # Valid for 10 min by default
 
 sub create_signature {
     my ($params, $app_secret) = @_;
     my $data_string
-            = ref($params) eq 'HASH'  ? create_string_from_hashref($params)
-            : !ref($params)           ? $params
-            : do { Carp::croak("create_signature does not handle type: ". ref($params)) };
+        = ref($params) eq 'HASH' ? create_string_from_hashref($params)
+        : !ref($params)          ? $params
+        :   do { Carp::croak("create_signature does not handle type: " . ref($params)) };
     hmac_sha256_hex($data_string, $app_secret);
 }
 
@@ -25,7 +25,7 @@ sub create_string_from_hashref {
         '&',
         map {
             Carp::croak("Structured data not allowed") if ref $params->{$_};
-            $_. '='. ($params->{$_} || '');
+            $_ . '=' . ($params->{$_} || '');
         } sort { $a cmp $b } grep { !m/^sop_/ } keys %$params
     );
 }
@@ -34,14 +34,44 @@ sub is_signature_valid {
     my ($sig, $params, $app_secret, $time) = @_;
     $time ||= time;
 
-    my $req_time = ref($params) ? $params->{time}
-                 : decode_json($params)->{time};
+    my $req_time
+        = ref($params)
+        ? $params->{time}
+        : decode_json($params)->{time};
 
     return if not $req_time;
-    return if $req_time < ($time - $SIG_VALID_FOR_SEC)
-           or $req_time > ($time + $SIG_VALID_FOR_SEC);
+    return
+        if $req_time < ($time - $SIG_VALID_FOR_SEC)
+        or $req_time > ($time + $SIG_VALID_FOR_SEC);
 
     $sig eq create_signature($params, $app_secret);
+}
+
+sub create_url_with_sig {
+    my ($url, $app_secret, $time) = @_;
+
+    my %params;
+    if ($url =~ /[^?]+\?(.+)/) {
+        my $params_str = $1;
+        %params = map {
+            /([^=]+)=([^=]+)/;
+            { $1 => $2 };
+        } split('&', $params_str);
+    }
+    else {
+        %params = ();
+    }
+
+    Carp::croak('Parameter "time" is not allowed.') if exists $params{time};
+    Carp::croak('Parameter "sig" is not allowed.')  if exists $params{sig};
+
+    $params{time} = $time;
+
+    my $sig = create_signature(\%params, $app_secret);
+    $url .= '?' unless $url =~ /\?/;
+    $url .= '&' unless $url =~ /(\?\z|&\z)/;
+
+    "${url}time=${time}&sig=${sig}";
 }
 
 1;
@@ -89,6 +119,10 @@ Creates a string from parameters in type hashref.
 
 Validates if a signature is valid for given parameters.
 C<$time> is optional where C<time()> is used by default.
+
+=head2 create_url_with_sig( $url, $app_secret, $time )
+
+Create URL which include HTTP Parameter "time" and "sig".
 
 =head1 SEE ALSO
 
