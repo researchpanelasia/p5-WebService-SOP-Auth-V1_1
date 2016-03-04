@@ -7,18 +7,22 @@ our $VERSION = "0.02";
 
 use Carp ();
 use URI;
+use WebService::SOP::Auth::V1_1::Request::DELETE;
 use WebService::SOP::Auth::V1_1::Request::GET;
 use WebService::SOP::Auth::V1_1::Request::POST;
 use WebService::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::SOP::Auth::V1_1::Request::PUT;
+use WebService::SOP::Auth::V1_1::Request::PUT_JSON;
 use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
 
 sub new {
     my ($class, $args) = @_;
-    $args ||= +{ };
+    $args ||= +{};
 
     do {
         Carp::croak("Missing required parameter: ${_}") if not $args->{$_};
-    } for qw( app_id app_secret );
+        }
+        for qw( app_id app_secret );
 
     $args->{time} = time if not $args->{time};
 
@@ -33,11 +37,8 @@ sub create_request {
     my ($self, $type, $uri, $params) = @_;
     $uri = URI->new($uri) if not ref $uri;
     my $request_maker = "WebService::SOP::Auth::V1_1::Request::${type}";
-    $request_maker->create_request(
-        $uri,
-        { %$params, time => $self->time },
-        $self->app_secret,
-    );
+    $request_maker->create_request($uri, { %$params, app_id => $self->app_id, time => $self->time },
+        $self->app_secret,);
 }
 
 sub verify_signature {
@@ -100,7 +101,7 @@ by L<Research Panel Asia, Inc|http://www.researchpanelasia.com/>.
 
 =head1 METHODS
 
-=head2 new( \%options )
+=head2 new( \%options ) returns WebService::SOP::Auth::V1_1
 
 Creates a new instance.
 
@@ -122,21 +123,21 @@ Possible options:
 
 =back
 
-=head2 app_id
+=head2 app_id() returns Int
 
-Gets C<app_id> configured to instance.
+Returns C<app_id> configured to instance.
 
-=head2 app_secret
+=head2 app_secret() returns Str
 
-Gets C<app_secret> configured to instance.
+Returns C<app_secret> configured to instance.
 
-=head2 time
+=head2 time returns Int
 
-Gets C<time> configured to instance.
+Returns C<time> configured to instance.
 
-=head2 create_request( $type, $uri, $params )
+=head2 create_request( Str $type, Any $uri, Hash $params ) returns HTTP::Request
 
-Creates a new L<HTTP::Request> object for API request.
+Returns a new L<HTTP::Request> object for API request while adding C<app_id> to parameters by default.
 
 I<$type> can be one of followings:
 
@@ -157,23 +158,40 @@ parameter B<sig> of request content type C<application/x-www-form-urlencoded>.
 For HTTP POST request to SOP endpoint with signature as request header
 C<X-Sop-Sig> of request content type C<application/json>.
 
+=item C<PUT>
+
+For HTTP PUT request to SOP endpoint with signature in query string as
+parameter B<sig> of request content type C<application/x-www-form-urlencoded>.
+
+=item C<PUT_JSON>
+
+For HTTP PUT request to SOP endpoint with signature as request header
+C<X-Sop-Sig> of request content type C<application/json>.
+
+=item C<DELETE>
+
+For HTTP DELETE request to SOP endpoint with signature in query string as parameter
+B<sig>.
+
 =back
 
-=head2 verify_signature( $sig, $params )
+=head2 verify_signature( Str $sig, Hash $params ) return Int
 
-Verifies if request signature is valid.
+Verifies and returns if request signature is valid.
 
 =head1 SEE ALSO
 
+L<WebService::SOP::Auth::V1_1::Request::DELETE>,
 L<WebService::SOP::Auth::V1_1::Request::GET>,
 L<WebService::SOP::Auth::V1_1::Request::POST>,
 L<WebService::SOP::Auth::V1_1::Request::POST_JSON>,
+L<WebService::SOP::Auth::V1_1::Request::PUT>,
+L<WebService::SOP::Auth::V1_1::Request::PUT_JSON>,
 L<WebService::SOP::Auth::V1_1::Util>
-
-Research Panel Asia, Inc. website L<http://www.researchpanelasia.com/>
 
 =head1 LICENSE
 
+Copyright (C) dataSpring, Inc.
 Copyright (C) Research Panel Asia, Inc.
 
 This library is free software; you can redistribute it and/or modify
@@ -181,7 +199,7 @@ it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-yowcowvg E<lt>yoko_ohyama [ at ] voyagegroup.comE<gt>
+yowcow E<lt>yoko.oyama [ at ] d8aspring.comE<gt>
 
 =cut
 

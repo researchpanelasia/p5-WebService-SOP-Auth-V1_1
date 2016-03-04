@@ -49,6 +49,8 @@ subtest 'Test create_request OK' => sub {
     );
 
     isa_ok $req, 'HTTP::Request';
+    is $req->method, 'GET';
+
     isa_ok $req->uri, 'URI';
     is $req->uri->host, 'hoge';
     is $req->uri->path, '/get';

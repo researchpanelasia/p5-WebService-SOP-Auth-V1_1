@@ -1,8 +1,8 @@
-package WebService::SOP::Auth::V1_1::Request::GET;
+package WebService::SOP::Auth::V1_1::Request::PUT;
 use strict;
 use warnings;
 use Carp ();
-use HTTP::Request::Common qw(GET);
+use HTTP::Request::Common qw(PUT);
 use WebService::SOP::Auth::V1_1::Util qw(create_signature);
 
 sub create_request {
@@ -11,11 +11,7 @@ sub create_request {
     Carp::croak('Missing required parameter: time') if not $params->{time};
     Carp::croak('Missing app_secret') if not $app_secret;
 
-    $uri->query_form({
-        %$params,
-        sig => create_signature($params, $app_secret),
-    });
-    GET $uri;
+    PUT $uri => { %$params, sig => create_signature($params, $app_secret), };
 }
 
 1;
@@ -26,23 +22,17 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1::Request::GET
+WebService::SOP::Auth::V1_1::Request::PUT
 
 =head1 DESCRIPTION
 
-To create a valid L<HTTP::Request> object for given C<GET> request parameters.
+To create a valid L<HTTP::Request> object for C<PUT> request with content type C<application/x-www-form-urlencoded>.
 
-=head1 METHODS
+=head1 FUNCTIONS
 
-=head2 $class->create_request( $uri, $params, $app_secret )
+=head2 $class->create_request( URI $uri, Hash $params, Str $app_secret ) returns HTTP::Request
 
-Returns L<HTTP::Request> object for a GET request.
-Request parameters including signature are gathered as GET parameters.
-
-=head1 SEE ALSO
-
-L<HTTP::Request>
-L<WebService::SOP::Auth::V1_1>
+Returns L<HTTP::Request> object for a PUT request with content-type C<application/x-www-form-urlencoded>
 
 =head1 LICENSE
 

@@ -63,10 +63,13 @@ subtest 'Test create_request OK' => sub {
     );
 
     isa_ok $req, 'HTTP::Request';
-    isa_ok $req->uri, 'URI';
-    is $req->uri->as_string, 'http://hoge/post_json';
+    is $req->method, 'POST';
+
     is $req->headers->header('content-type'), 'application/json';
     is $req->headers->header('x-sop-sig'), 'hoge-signature';
+
+    isa_ok $req->uri, 'URI';
+    is $req->uri->as_string, 'http://hoge/post_json';
 
     {
         my $data = decode_json($req->content);
