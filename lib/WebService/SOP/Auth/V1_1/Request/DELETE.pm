@@ -19,3 +19,36 @@ sub create_request {
 }
 
 1;
+
+__END__
+
+=encoding utf-8
+
+=head1 NAME
+
+WebService::SOP::Auth::V1_1::Request::DELETE
+
+=head1 DESCRIPTION
+
+To create a valid L<HTTP::Request> object for C<DELETE> request.
+
+=head1 FUNCTIONS
+
+=head2 $class->create_request( URI $uri, Hash $params, Str $app_secret ) returns HTTP::Request
+
+Returns L<HTTP::Request> object for a DELETE request.
+
+=head1 LICENSE
+
+Copyright (C) dataSpring, Inc.
+Copyright (C) Research Panel Asia, Inc.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=head1 AUTHOR
+
+yowcow E<lt>yoko.oyama [ at ] d8aspring.comE<gt>
+
+=cut
+

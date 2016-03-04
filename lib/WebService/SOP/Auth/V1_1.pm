@@ -98,7 +98,7 @@ by L<Research Panel Asia, Inc|http://www.researchpanelasia.com/>.
 
 =head1 METHODS
 
-=head2 new( \%options )
+=head2 new( \%options ) returns WebService::SOP::Auth::V1_1
 
 Creates a new instance.
 
@@ -120,21 +120,21 @@ Possible options:
 
 =back
 
-=head2 app_id
+=head2 app_id() returns Int
 
-Gets C<app_id> configured to instance.
+Returns C<app_id> configured to instance.
 
-=head2 app_secret
+=head2 app_secret() returns Str
 
-Gets C<app_secret> configured to instance.
+Returns C<app_secret> configured to instance.
 
-=head2 time
+=head2 time returns Int
 
-Gets C<time> configured to instance.
+Returns C<time> configured to instance.
 
-=head2 create_request( $type, $uri, $params )
+=head2 create_request( Str $type, Any $uri, Hash $params ) returns HTTP::Request
 
-Creates a new L<HTTP::Request> object for API request while adding C<app_id> to parameters by default.
+Returns a new L<HTTP::Request> object for API request while adding C<app_id> to parameters by default.
 
 I<$type> can be one of followings:
 
@@ -155,20 +155,36 @@ parameter B<sig> of request content type C<application/x-www-form-urlencoded>.
 For HTTP POST request to SOP endpoint with signature as request header
 C<X-Sop-Sig> of request content type C<application/json>.
 
+=item C<PUT>
+
+For HTTP PUT request to SOP endpoint with signature in query string as
+parameter B<sig> of request content type C<application/x-www-form-urlencoded>.
+
+=item C<PUT_JSON>
+
+For HTTP PUT request to SOP endpoint with signature as request header
+C<X-Sop-Sig> of request content type C<application/json>.
+
+=item C<DELETE>
+
+For HTTP DELETE request to SOP endpoint with signature in query string as parameter
+B<sig>.
+
 =back
 
-=head2 verify_signature( $sig, $params )
+=head2 verify_signature( Str $sig, Hash $params ) return Int
 
-Verifies if request signature is valid.
+Verifies and returns if request signature is valid.
 
 =head1 SEE ALSO
 
+L<WebService::SOP::Auth::V1_1::Request::DELETE>,
 L<WebService::SOP::Auth::V1_1::Request::GET>,
 L<WebService::SOP::Auth::V1_1::Request::POST>,
 L<WebService::SOP::Auth::V1_1::Request::POST_JSON>,
+L<WebService::SOP::Auth::V1_1::Request::PUT>,
+L<WebService::SOP::Auth::V1_1::Request::PUT_JSON>,
 L<WebService::SOP::Auth::V1_1::Util>
-
-Research Panel Asia, Inc. website L<http://www.researchpanelasia.com/>
 
 =head1 LICENSE
 
