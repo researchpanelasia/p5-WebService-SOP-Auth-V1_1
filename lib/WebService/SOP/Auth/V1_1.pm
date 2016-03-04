@@ -7,9 +7,12 @@ our $VERSION = "0.02";
 
 use Carp ();
 use URI;
+use WebService::SOP::Auth::V1_1::Request::DELETE;
 use WebService::SOP::Auth::V1_1::Request::GET;
 use WebService::SOP::Auth::V1_1::Request::POST;
 use WebService::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::SOP::Auth::V1_1::Request::PUT;
+use WebService::SOP::Auth::V1_1::Request::PUT_JSON;
 use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
 
 sub new {

@@ -63,6 +63,8 @@ subtest 'Test create_request for GET' => sub {
     my $req = $auth->create_request(GET => '/' => { hoge => 'fuga' },);
 
     isa_ok $req, 'HTTP::Request';
+    is $req->method, 'GET';
+    is $req->headers->header('content-type'), undef;
 };
 
 subtest 'Test create_request for POST' => sub {
@@ -76,6 +78,8 @@ subtest 'Test create_request for POST' => sub {
     my $req = $auth->create_request(POST => '/' => { hoge => 'fuga' },);
 
     isa_ok $req, 'HTTP::Request';
+    is $req->method, 'POST';
+    is $req->headers->header('content-type'), 'application/x-www-form-urlencoded';
 };
 
 subtest 'Test create_request for POST_JSON' => sub {
@@ -89,6 +93,53 @@ subtest 'Test create_request for POST_JSON' => sub {
     my $req = $auth->create_request(POST_JSON => '/' => { hoge => 'fuga' },);
 
     isa_ok $req, 'HTTP::Request';
+    is $req->method, 'POST';
+    is $req->headers->header('content-type'), 'application/json';
+};
+
+subtest 'Test create_request for PUT' => sub {
+    my $auth = $class->new(
+        {   app_id     => 1,
+            app_secret => 'hogehoge',
+            time       => '1234',
+        }
+    );
+
+    my $req = $auth->create_request(PUT => '/' => { hoge => 'fuga' });
+
+    isa_ok $req, 'HTTP::Request';
+    is $req->method, 'PUT';
+    is $req->headers->header('content-type'), 'application/x-www-form-urlencoded';
+};
+
+subtest 'Test create_request for PUT_JSON' => sub {
+    my $auth = $class->new(
+        {   app_id     => '1',
+            app_secret => 'hogehoge',
+            time       => '1234',
+        }
+    );
+
+    my $req = $auth->create_request(PUT_JSON => '/' => { hoge => 'fuga' },);
+
+    isa_ok $req, 'HTTP::Request';
+    is $req->method, 'PUT';
+    is $req->headers->header('content-type'), 'application/json';
+};
+
+subtest 'Test create_request for DELETE' => sub {
+    my $auth = $class->new(
+        {   app_id     => '1',
+            app_secret => 'hogehoge',
+            time       => '1234',
+        }
+    );
+
+    my $req = $auth->create_request(DELETE => '/' => { hoge => 'fuga' },);
+
+    isa_ok $req, 'HTTP::Request';
+    is $req->method, 'DELETE';
+    is $req->headers->header('content-type'), undef;
 };
 
 subtest 'Test verify_request' => sub {
