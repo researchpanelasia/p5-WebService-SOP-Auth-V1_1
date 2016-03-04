@@ -30,7 +30,7 @@ To create a valid L<HTTP::Request> object for C<PUT> request with content type C
 
 =head1 FUNCTIONS
 
-=head2 $class->create_request( Any $uri, Hash $params, Str $app_secret ) returns HTTP::Request
+=head2 $class->create_request( URI $uri, Hash $params, Str $app_secret ) returns HTTP::Request
 
 Returns L<HTTP::Request> object for a PUT request with content-type C<application/x-www-form-urlencoded>
 
