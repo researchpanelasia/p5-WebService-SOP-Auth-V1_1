@@ -48,7 +48,7 @@ by [Research Panel Asia, Inc](http://www.researchpanelasia.com/).
 
 # METHODS
 
-## new( \\%options )
+## new( \\%options ) returns WebService::SOP::Auth::V1\_1
 
 Creates a new instance.
 
@@ -66,21 +66,21 @@ Possible options:
 
     (Optional) POSIX time.
 
-## app\_id
+## app\_id() returns Int
 
-Gets `app_id` configured to instance.
+Returns `app_id` configured to instance.
 
-## app\_secret
+## app\_secret() returns Str
 
-Gets `app_secret` configured to instance.
+Returns `app_secret` configured to instance.
 
-## time
+## time returns Int
 
-Gets `time` configured to instance.
+Returns `time` configured to instance.
 
-## create\_request( $type, $uri, $params )
+## create\_request( Str $type, Any $uri, Hash $params ) returns HTTP::Request
 
-Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request while adding `app_id` to parameters by default.
+Returns a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request while adding `app_id` to parameters by default.
 
 _$type_ can be one of followings:
 
@@ -99,18 +99,34 @@ _$type_ can be one of followings:
     For HTTP POST request to SOP endpoint with signature as request header
     `X-Sop-Sig` of request content type `application/json`.
 
-## verify\_signature( $sig, $params )
+- `PUT`
 
-Verifies if request signature is valid.
+    For HTTP PUT request to SOP endpoint with signature in query string as
+    parameter **sig** of request content type `application/x-www-form-urlencoded`.
+
+- `PUT_JSON`
+
+    For HTTP PUT request to SOP endpoint with signature as request header
+    `X-Sop-Sig` of request content type `application/json`.
+
+- `DELETE`
+
+    For HTTP DELETE request to SOP endpoint with signature in query string as parameter
+    **sig**.
+
+## verify\_signature( Str $sig, Hash $params ) return Int
+
+Verifies and returns if request signature is valid.
 
 # SEE ALSO
 
+[WebService::SOP::Auth::V1\_1::Request::DELETE](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::DELETE),
 [WebService::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::GET),
 [WebService::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST),
 [WebService::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST_JSON),
+[WebService::SOP::Auth::V1\_1::Request::PUT](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::PUT),
+[WebService::SOP::Auth::V1\_1::Request::PUT\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::PUT_JSON),
 [WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
-
-Research Panel Asia, Inc. website [http://www.researchpanelasia.com/](http://www.researchpanelasia.com/)
 
 # LICENSE
 
