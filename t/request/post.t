@@ -43,6 +43,9 @@ subtest 'Test create_request OK' => sub {
     );
 
     isa_ok $req, 'HTTP::Request';
+    is $req->method, 'POST';
+    is $req->headers->header('content-type'), 'application/x-www-form-urlencoded';
+
     isa_ok $req->uri, 'URI';
     is $req->uri->as_string, 'http://hoge/post';
 
