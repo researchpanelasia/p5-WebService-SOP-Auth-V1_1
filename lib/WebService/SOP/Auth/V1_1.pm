@@ -14,11 +14,12 @@ use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
 
 sub new {
     my ($class, $args) = @_;
-    $args ||= +{ };
+    $args ||= +{};
 
     do {
         Carp::croak("Missing required parameter: ${_}") if not $args->{$_};
-    } for qw( app_id app_secret );
+        }
+        for qw( app_id app_secret );
 
     $args->{time} = time if not $args->{time};
 
@@ -33,11 +34,8 @@ sub create_request {
     my ($self, $type, $uri, $params) = @_;
     $uri = URI->new($uri) if not ref $uri;
     my $request_maker = "WebService::SOP::Auth::V1_1::Request::${type}";
-    $request_maker->create_request(
-        $uri,
-        { %$params, time => $self->time },
-        $self->app_secret,
-    );
+    $request_maker->create_request($uri, { %$params, app_id => $self->app_id, time => $self->time },
+        $self->app_secret,);
 }
 
 sub verify_signature {
@@ -136,7 +134,7 @@ Gets C<time> configured to instance.
 
 =head2 create_request( $type, $uri, $params )
 
-Creates a new L<HTTP::Request> object for API request.
+Creates a new L<HTTP::Request> object for API request while adding C<app_id> to parameters by default.
 
 I<$type> can be one of followings:
 

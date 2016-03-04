@@ -80,7 +80,7 @@ Gets `time` configured to instance.
 
 ## create\_request( $type, $uri, $params )
 
-Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request.
+Creates a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request while adding `app_id` to parameters by default.
 
 _$type_ can be one of followings:
 

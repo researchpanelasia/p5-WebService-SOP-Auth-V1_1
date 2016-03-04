@@ -78,7 +78,8 @@
    "x_authority" : "cpan:YOWCOW",
    "x_contributors" : [
       "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",
-      "yowcowvg <yoko_ohyama@voyagegroup.com>"
+      "yowcowvg <yoko_ohyama@voyagegroup.com>",
+      "yowcow <yowcow@cpan.org>"
    ],
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }
