@@ -1,10 +1,10 @@
 {
    "abstract" : "SOP version 1.1 authentication module",
    "author" : [
-      "yowcowvg <yoko_ohyama [ at ] voyagegroup.com>"
+      "yowcow <yoko.oyama [ at ] d8aspring.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.150005",
+   "generated_by" : "Minilla/v3.0.1, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],

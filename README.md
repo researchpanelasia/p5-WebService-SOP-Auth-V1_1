@@ -114,6 +114,7 @@ Research Panel Asia, Inc. website [http://www.researchpanelasia.com/](http://www
 
 # LICENSE
 
+Copyright (C) dataSpring, Inc.
 Copyright (C) Research Panel Asia, Inc.
 
 This library is free software; you can redistribute it and/or modify
@@ -121,4 +122,4 @@ it under the same terms as Perl itself.
 
 # AUTHOR
 
-yowcowvg <yoko\_ohyama \[ at \] voyagegroup.com>
+yowcow &lt;yoko.oyama \[ at \] d8aspring.com>
