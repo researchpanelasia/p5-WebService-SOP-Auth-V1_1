@@ -44,7 +44,7 @@
          "requires" : {
             "Carp" : "0",
             "Digest::SHA" : "0",
-            "HTTP::Request::Common" : "0",
+            "HTTP::Request::Common" : "6.07",
             "JSON::XS" : "0",
             "URI" : "0",
             "perl" : "5.008001"
@@ -79,8 +79,8 @@
    "x_contributors" : [
       "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",
       "yowcowvg <yoko_ohyama@voyagegroup.com>",
-      "yowcow <yowcow@cpan.org>",
-      "Yoko OYAMA <yowcow@users.noreply.github.com>"
+      "Yoko OYAMA <yowcow@users.noreply.github.com>",
+      "yowcow <yowcow@cpan.org>"
    ],
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }

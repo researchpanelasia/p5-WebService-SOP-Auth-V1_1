@@ -2,7 +2,7 @@ requires 'perl', '5.008001';
 
 requires 'Carp';
 requires 'Digest::SHA';
-requires 'HTTP::Request::Common';
+requires 'HTTP::Request::Common' => '>= 6.07';
 requires 'JSON::XS';
 requires 'URI';
 
