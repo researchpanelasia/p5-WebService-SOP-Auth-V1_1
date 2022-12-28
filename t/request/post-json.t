@@ -4,7 +4,6 @@ use JSON::XS qw(decode_json);
 use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
-use Test::Pretty;
 use URI;
 use WebService::SOP::Auth::V1_1::Request::POST_JSON;
 

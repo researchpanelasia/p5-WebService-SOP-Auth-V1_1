@@ -3,7 +3,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = "0.04";
+our $VERSION = "0.05";
 
 use Carp ();
 use URI;
@@ -43,7 +43,7 @@ sub create_request {
 
 sub verify_signature {
     my ($self, $sig, $params) = @_;
-    is_signature_valid($sig, $params, $self->app_secret, $self->time);
+    eval { is_signature_valid($sig, $params, $self->app_secret, $self->time); };
 }
 
 1;

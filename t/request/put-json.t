@@ -3,7 +3,6 @@ use warnings;
 use JSON::XS;
 use Test::Exception;
 use Test::More;
-use Test::Pretty;
 use WebService::SOP::Auth::V1_1::Util qw(create_signature);
 
 my $class = 'WebService::SOP::Auth::V1_1::Request::PUT_JSON';

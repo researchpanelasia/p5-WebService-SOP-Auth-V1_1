@@ -74,13 +74,14 @@
          "web" : "https://github.com/researchpanelasia/p5-WebService-SOP-Auth-V1_1"
       }
    },
-   "version" : "0.04",
+   "version" : "0.05",
    "x_authority" : "cpan:YOWCOW",
    "x_contributors" : [
       "t-sekiguchi <Takafumi_Sekiguchi@voyagegroup.com>",
       "yowcowvg <yoko_ohyama@voyagegroup.com>",
       "yowcow <yowcow@cpan.org>",
-      "Yoko OYAMA <yowcow@users.noreply.github.com>"
+      "Yoko OYAMA <yowcow@users.noreply.github.com>",
+      "Jamers Wu <jamers.wu@d8aspring.com>"
    ],
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }

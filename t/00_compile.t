@@ -1,6 +1,5 @@
 use strict;
 use Test::More 0.98;
-use Test::Pretty;
 
 use_ok $_ for qw(
     WebService::SOP::Auth::V1_1

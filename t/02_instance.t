@@ -4,7 +4,6 @@ use JSON::XS qw(decode_json);
 use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
-use Test::Pretty;
 use WebService::SOP::Auth::V1_1;
 
 my $class = 'WebService::SOP::Auth::V1_1';
@@ -180,6 +179,26 @@ subtest 'Test verify_request' => sub {
             hoge   => 'fuga',
             time   => '1234',
             };
+    };
+};
+
+subtest 'Test verify_signature error' => sub {
+    my $guard = mock_guard(
+        'WebService::SOP::Auth::V1_1::Util' => {
+            is_signature_valid => sub { die 'Error'; },
+        },
+    );
+
+    my $auth = $class->new(
+        {   app_id     => '1',
+            app_secret => 'hogehoge',
+            time       => '1234',
+        }
+    );
+
+    lives_ok {
+        my $valid = $auth->verify_signature('test', {});
+        is $valid, undef;
     };
 };
 

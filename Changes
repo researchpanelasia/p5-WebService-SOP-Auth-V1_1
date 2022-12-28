@@ -2,6 +2,11 @@ Revision history for Perl extension WebService-SOP-Auth-V1_1
 
 {{$NEXT}}
 
+0.05 2022-12-28T02:54:00Z
+
+    - Catch verify_signature errors
+    - Remove Test::Pretty
+
 0.04 2016-03-09T07:02:11Z
 
     - Perl >= 5.10

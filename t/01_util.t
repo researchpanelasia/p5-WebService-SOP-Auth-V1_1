@@ -2,7 +2,6 @@ use strict;
 use warnings;
 use Test::Exception;
 use Test::More;
-use Test::Pretty;
 use WebService::SOP::Auth::V1_1::Util;
 
 subtest 'Test create_string_from_hashref' => sub {

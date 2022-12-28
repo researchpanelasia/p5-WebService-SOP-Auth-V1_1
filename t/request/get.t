@@ -2,7 +2,6 @@ use strict;
 use warnings;
 use Test::Exception;
 use Test::More;
-use Test::Pretty;
 use URI;
 use WebService::SOP::Auth::V1_1::Request::GET;
 
