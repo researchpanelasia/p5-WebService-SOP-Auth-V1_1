@@ -2,11 +2,10 @@ use strict;
 use warnings;
 use Test::Exception;
 use Test::More;
-use Test::Pretty;
 use URI;
-use WebService::SOP::Auth::V1_1::Util qw(create_signature);
+use WebService::DS::SOP::Auth::V1_1::Util qw(create_signature);
 
-my $class = 'WebService::SOP::Auth::V1_1::Request::PUT';
+my $class = 'WebService::DS::SOP::Auth::V1_1::Request::PUT';
 
 use_ok $class;
 can_ok $class, 'create_request';

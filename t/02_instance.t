@@ -4,10 +4,9 @@ use JSON::XS qw(decode_json);
 use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
-use Test::Pretty;
-use WebService::SOP::Auth::V1_1;
+use WebService::DS::SOP::Auth::V1_1;
 
-my $class = 'WebService::SOP::Auth::V1_1';
+my $class = 'WebService::DS::SOP::Auth::V1_1';
 
 subtest 'Test new w/o required params' => sub {
     throws_ok { $class->new } qr|Missing required parameter|;
@@ -180,6 +179,26 @@ subtest 'Test verify_request' => sub {
             hoge   => 'fuga',
             time   => '1234',
             };
+    };
+};
+
+subtest 'Test verify_signature error' => sub {
+    my $guard = mock_guard(
+        'WebService::DS::SOP::Auth::V1_1::Util' => {
+            is_signature_valid => sub { die 'Error'; },
+        },
+    );
+
+    my $auth = $class->new(
+        {   app_id     => '1',
+            app_secret => 'hogehoge',
+            time       => '1234',
+        }
+    );
+
+    lives_ok {
+        my $valid = $auth->verify_signature('test', {});
+        is $valid, undef;
     };
 };
 

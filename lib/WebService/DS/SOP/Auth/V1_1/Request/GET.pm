@@ -1,9 +1,9 @@
-package WebService::SOP::Auth::V1_1::Request::GET;
+package WebService::DS::SOP::Auth::V1_1::Request::GET;
 use strict;
 use warnings;
 use Carp ();
 use HTTP::Request::Common qw(GET);
-use WebService::SOP::Auth::V1_1::Util qw(create_signature);
+use WebService::DS::SOP::Auth::V1_1::Util qw(create_signature);
 
 sub create_request {
     my ($class, $uri, $params, $app_secret) = @_;
@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1::Request::GET
+WebService::DS::SOP::Auth::V1_1::Request::GET
 
 =head1 DESCRIPTION
 
@@ -42,7 +42,7 @@ Request parameters including signature are gathered as GET parameters.
 =head1 SEE ALSO
 
 L<HTTP::Request>
-L<WebService::SOP::Auth::V1_1>
+L<WebService::DS::SOP::Auth::V1_1>
 
 =head1 LICENSE
 

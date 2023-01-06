@@ -1,10 +1,10 @@
-package WebService::SOP::Auth::V1_1::Request::PUT_JSON;
+package WebService::DS::SOP::Auth::V1_1::Request::POST_JSON;
 use strict;
 use warnings;
 use Carp ();
 use JSON::XS qw(encode_json);
-use HTTP::Request::Common qw(PUT);
-use WebService::SOP::Auth::V1_1::Util qw(create_signature);
+use HTTP::Request::Common qw(POST);
+use WebService::DS::SOP::Auth::V1_1::Util qw(create_signature);
 
 sub create_request {
     my ($class, $uri, $params, $app_secret) = @_;
@@ -15,9 +15,9 @@ sub create_request {
     my $content = encode_json($params);
     my $sig = create_signature($content, $app_secret);
 
-    my $req = PUT $uri, Content => $content;
+    my $req = POST $uri, Content => $content;
     $req->headers->header('content-type' => 'application/json');
-    $req->headers->header('x-sop-sig'    => $sig);
+    $req->headers->header('x-sop-sig' => $sig);
     $req;
 }
 
@@ -29,18 +29,23 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1::Request::PUT_JSON
+WebService::DS::SOP::Auth::V1_1::Request::POST_JSON
 
 =head1 DESCRIPTION
 
-To create a valid L<HTTP::Request> object for C<PUT> request with content type C<application/json>.
+To create a valid L<HTTP::Request> object for given C<POST> request parameters to send JSON data.
 
-=head1 FUNCTIONS
+=head1 METHODS
 
-=head2 $class->create_request( URI $uri, Hash $params, Str $app_secret ) returns HTTP::Request
+=head2 $class->create_request( $uri, $params, $app_secret )
 
-Returns L<HTTP::Request> object for a PUT request with content-type C<application/json>,
-with signature in header C<X-Sop-Sig>.
+Returns L<HTTP::Request> object for a POST request.
+Request parameters are gathered as a JSON data in request body, while signature is added as request header C<X-Sop-Sig>.
+
+=head1 SEE ALSO
+
+L<HTTP::Request>
+L<WebService::DS::SOP::Auth::V1_1>
 
 =head1 LICENSE
 

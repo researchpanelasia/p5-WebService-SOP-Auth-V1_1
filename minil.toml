@@ -1,6 +1,6 @@
-name = "WebService-SOP-Auth-V1_1"
+name = "WebService-DS-SOP-Auth-V1_1"
 badges = ["travis"]
-authority="cpan:YOWCOW"
+authority="cpan:DSSYSTEM"
 
 module_maker="ModuleBuildTiny"
 
