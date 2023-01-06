@@ -3,9 +3,9 @@ use warnings;
 use Test::Exception;
 use Test::More;
 use URI;
-use WebService::SOP::Auth::V1_1::Request::GET;
+use WebService::DS::SOP::Auth::V1_1::Request::GET;
 
-my $class = 'WebService::SOP::Auth::V1_1::Request::GET';
+my $class = 'WebService::DS::SOP::Auth::V1_1::Request::GET';
 
 subtest 'Test create_request fail' => sub {
     my $uri = URI->new('http://hoge/get');

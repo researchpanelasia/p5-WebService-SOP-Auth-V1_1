@@ -5,9 +5,9 @@ use Test::Exception;
 use Test::Mock::Guard;
 use Test::More;
 use URI;
-use WebService::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::DS::SOP::Auth::V1_1::Request::POST_JSON;
 
-my $class = 'WebService::SOP::Auth::V1_1::Request::POST_JSON';
+my $class = 'WebService::DS::SOP::Auth::V1_1::Request::POST_JSON';
 
 subtest 'Test create_request fail' => sub {
     my $uri = URI->new('http://hoge/get');

@@ -3,9 +3,9 @@ use warnings;
 use JSON::XS;
 use Test::Exception;
 use Test::More;
-use WebService::SOP::Auth::V1_1::Util qw(create_signature);
+use WebService::DS::SOP::Auth::V1_1::Util qw(create_signature);
 
-my $class = 'WebService::SOP::Auth::V1_1::Request::PUT_JSON';
+my $class = 'WebService::DS::SOP::Auth::V1_1::Request::PUT_JSON';
 
 use_ok $class;
 can_ok $class, 'create_request';

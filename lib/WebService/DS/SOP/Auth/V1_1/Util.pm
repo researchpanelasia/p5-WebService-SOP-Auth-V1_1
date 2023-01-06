@@ -1,4 +1,4 @@
-package WebService::SOP::Auth::V1_1::Util;
+package WebService::DS::SOP::Auth::V1_1::Util;
 use strict;
 use warnings;
 use Carp ();
@@ -52,11 +52,11 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1::Util - SOP version 1.1 authentication handy utilities
+WebService::DS::SOP::Auth::V1_1::Util - SOP version 1.1 authentication handy utilities
 
 =head1 SYNOPSIS
 
-    use WebService::SOP::Auth::V1_1 qw(create_signature is_signature_valid);
+    use WebService::DS::SOP::Auth::V1_1 qw(create_signature is_signature_valid);
 
 When creating a signature:
 
@@ -92,7 +92,7 @@ C<$time> is optional where C<time()> is used by default.
 
 =head1 SEE ALSO
 
-L<WebService::SOP::Auth::V1_1>
+L<WebService::DS::SOP::Auth::V1_1>
 
 =head1 LICENSE
 

@@ -1,4 +1,4 @@
-package WebService::SOP::Auth::V1_1;
+package WebService::DS::SOP::Auth::V1_1;
 use 5.008001;
 use strict;
 use warnings;
@@ -7,13 +7,13 @@ our $VERSION = "0.05";
 
 use Carp ();
 use URI;
-use WebService::SOP::Auth::V1_1::Request::DELETE;
-use WebService::SOP::Auth::V1_1::Request::GET;
-use WebService::SOP::Auth::V1_1::Request::POST;
-use WebService::SOP::Auth::V1_1::Request::POST_JSON;
-use WebService::SOP::Auth::V1_1::Request::PUT;
-use WebService::SOP::Auth::V1_1::Request::PUT_JSON;
-use WebService::SOP::Auth::V1_1::Util qw(is_signature_valid);
+use WebService::DS::SOP::Auth::V1_1::Request::DELETE;
+use WebService::DS::SOP::Auth::V1_1::Request::GET;
+use WebService::DS::SOP::Auth::V1_1::Request::POST;
+use WebService::DS::SOP::Auth::V1_1::Request::POST_JSON;
+use WebService::DS::SOP::Auth::V1_1::Request::PUT;
+use WebService::DS::SOP::Auth::V1_1::Request::PUT_JSON;
+use WebService::DS::SOP::Auth::V1_1::Util qw(is_signature_valid);
 
 sub new {
     my ($class, $args) = @_;
@@ -36,7 +36,7 @@ sub time       { $_[0]->{time} }
 sub create_request {
     my ($self, $type, $uri, $params) = @_;
     $uri = URI->new($uri) if not ref $uri;
-    my $request_maker = "WebService::SOP::Auth::V1_1::Request::${type}";
+    my $request_maker = "WebService::DS::SOP::Auth::V1_1::Request::${type}";
     $request_maker->create_request($uri, { %$params, app_id => $self->app_id, time => $self->time },
         $self->app_secret,);
 }
@@ -53,15 +53,15 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1 - SOP version 1.1 authentication module
+WebService::DS::SOP::Auth::V1_1 - SOP version 1.1 authentication module
 
 =head1 SYNOPSIS
 
-    use WebService::SOP::Auth::V1_1;
+    use WebService::DS::SOP::Auth::V1_1;
 
 To create an instance:
 
-    my $auth = WebService::SOP::Auth::V1_1->new({
+    my $auth = WebService::DS::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
@@ -95,13 +95,13 @@ When embedding JavaScript URL in page:
 
 =head1 DESCRIPTION
 
-WebService::SOP::Auth::V1_1 is an authentication module
+WebService::DS::SOP::Auth::V1_1 is an authentication module
 for L<SOP|http://console.partners.surveyon.com/> version 1.1
 by L<Research Panel Asia, Inc|http://www.researchpanelasia.com/>.
 
 =head1 METHODS
 
-=head2 new( \%options ) returns WebService::SOP::Auth::V1_1
+=head2 new( \%options ) returns WebService::DS::SOP::Auth::V1_1
 
 Creates a new instance.
 
@@ -181,13 +181,13 @@ Verifies and returns if request signature is valid.
 
 =head1 SEE ALSO
 
-L<WebService::SOP::Auth::V1_1::Request::DELETE>,
-L<WebService::SOP::Auth::V1_1::Request::GET>,
-L<WebService::SOP::Auth::V1_1::Request::POST>,
-L<WebService::SOP::Auth::V1_1::Request::POST_JSON>,
-L<WebService::SOP::Auth::V1_1::Request::PUT>,
-L<WebService::SOP::Auth::V1_1::Request::PUT_JSON>,
-L<WebService::SOP::Auth::V1_1::Util>
+L<WebService::DS::SOP::Auth::V1_1::Request::DELETE>,
+L<WebService::DS::SOP::Auth::V1_1::Request::GET>,
+L<WebService::DS::SOP::Auth::V1_1::Request::POST>,
+L<WebService::DS::SOP::Auth::V1_1::Request::POST_JSON>,
+L<WebService::DS::SOP::Auth::V1_1::Request::PUT>,
+L<WebService::DS::SOP::Auth::V1_1::Request::PUT_JSON>,
+L<WebService::DS::SOP::Auth::V1_1::Util>
 
 =head1 LICENSE
 

@@ -1,9 +1,9 @@
-package WebService::SOP::Auth::V1_1::Request::PUT;
+package WebService::DS::SOP::Auth::V1_1::Request::PUT;
 use strict;
 use warnings;
 use Carp ();
 use HTTP::Request::Common qw(PUT);
-use WebService::SOP::Auth::V1_1::Util qw(create_signature);
+use WebService::DS::SOP::Auth::V1_1::Util qw(create_signature);
 
 sub create_request {
     my ($class, $uri, $params, $app_secret) = @_;
@@ -22,7 +22,7 @@ __END__
 
 =head1 NAME
 
-WebService::SOP::Auth::V1_1::Request::PUT
+WebService::DS::SOP::Auth::V1_1::Request::PUT
 
 =head1 DESCRIPTION
 

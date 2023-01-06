@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/researchpanelasia/p5-WebService-SOP-Auth-V1_1.svg?branch=master)](https://travis-ci.org/researchpanelasia/p5-WebService-SOP-Auth-V1_1)
 # NAME
 
-WebService::SOP::Auth::V1\_1 - SOP version 1.1 authentication module
+WebService::DS::SOP::Auth::V1\_1 - SOP version 1.1 authentication module
 
 # SYNOPSIS
 
-    use WebService::SOP::Auth::V1_1;
+    use WebService::DS::SOP::Auth::V1_1;
 
 To create an instance:
 
-    my $auth = WebService::SOP::Auth::V1_1->new({
+    my $auth = WebService::DS::SOP::Auth::V1_1->new({
         app_id => '1',
         app_secret => 'hogehoge',
     });
@@ -42,13 +42,13 @@ When embedding JavaScript URL in page:
 
 # DESCRIPTION
 
-WebService::SOP::Auth::V1\_1 is an authentication module
+WebService::DS::SOP::Auth::V1\_1 is an authentication module
 for [SOP](http://console.partners.surveyon.com/) version 1.1
 by [Research Panel Asia, Inc](http://www.researchpanelasia.com/).
 
 # METHODS
 
-## new( \\%options ) returns WebService::SOP::Auth::V1\_1
+## new( \\%options ) returns WebService::DS::SOP::Auth::V1\_1
 
 Creates a new instance.
 
@@ -120,13 +120,13 @@ Verifies and returns if request signature is valid.
 
 # SEE ALSO
 
-[WebService::SOP::Auth::V1\_1::Request::DELETE](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::DELETE),
-[WebService::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::GET),
-[WebService::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST),
-[WebService::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::POST_JSON),
-[WebService::SOP::Auth::V1\_1::Request::PUT](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::PUT),
-[WebService::SOP::Auth::V1\_1::Request::PUT\_JSON](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Request::PUT_JSON),
-[WebService::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::SOP::Auth::V1_1::Util)
+[WebService::DS::SOP::Auth::V1\_1::Request::DELETE](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::DELETE),
+[WebService::DS::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::GET),
+[WebService::DS::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::POST),
+[WebService::DS::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::POST_JSON),
+[WebService::DS::SOP::Auth::V1\_1::Request::PUT](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::PUT),
+[WebService::DS::SOP::Auth::V1\_1::Request::PUT\_JSON](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::PUT_JSON),
+[WebService::DS::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Util)
 
 # LICENSE
 
