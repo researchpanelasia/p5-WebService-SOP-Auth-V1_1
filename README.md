@@ -80,7 +80,7 @@ Returns `time` configured to instance.
 
 ## create\_request( Str $type, Any $uri, Hash $params ) returns HTTP::Request
 
-Returns a new [HTTP::Request](https://metacpan.org/pod/HTTP::Request) object for API request while adding `app_id` to parameters by default.
+Returns a new [HTTP::Request](https://metacpan.org/pod/HTTP%3A%3ARequest) object for API request while adding `app_id` to parameters by default.
 
 _$type_ can be one of followings:
 
@@ -120,13 +120,13 @@ Verifies and returns if request signature is valid.
 
 # SEE ALSO
 
-[WebService::DS::SOP::Auth::V1\_1::Request::DELETE](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::DELETE),
-[WebService::DS::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::GET),
-[WebService::DS::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::POST),
-[WebService::DS::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::POST_JSON),
-[WebService::DS::SOP::Auth::V1\_1::Request::PUT](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::PUT),
-[WebService::DS::SOP::Auth::V1\_1::Request::PUT\_JSON](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Request::PUT_JSON),
-[WebService::DS::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService::DS::SOP::Auth::V1_1::Util)
+[WebService::DS::SOP::Auth::V1\_1::Request::DELETE](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3ADELETE),
+[WebService::DS::SOP::Auth::V1\_1::Request::GET](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3AGET),
+[WebService::DS::SOP::Auth::V1\_1::Request::POST](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3APOST),
+[WebService::DS::SOP::Auth::V1\_1::Request::POST\_JSON](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3APOST_JSON),
+[WebService::DS::SOP::Auth::V1\_1::Request::PUT](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3APUT),
+[WebService::DS::SOP::Auth::V1\_1::Request::PUT\_JSON](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3ARequest%3A%3APUT_JSON),
+[WebService::DS::SOP::Auth::V1\_1::Util](https://metacpan.org/pod/WebService%3A%3ADS%3A%3ASOP%3A%3AAuth%3A%3AV1_1%3A%3AUtil)
 
 # LICENSE
 
